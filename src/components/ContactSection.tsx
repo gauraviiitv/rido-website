@@ -9,7 +9,7 @@ const ContactUs = () => {
       <div className="mt-6">
         <h3 className="text-xl font-semibold">Customer Support</h3>
         <p>For any inquiries or assistance with bookings, please contact our customer support team.</p>
-        <p>Phone: 000000000000</p>
+        <p>Phone: 7070703844</p>
         <p>Email: <a href="mailto:cabsrido@gmail.com" className="text-blue-500">cabsrido@gmail.com</a></p>
       </div>
 

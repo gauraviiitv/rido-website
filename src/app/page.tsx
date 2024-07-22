@@ -1,5 +1,4 @@
 "use client";
-import './globals.css';
 import { useState } from 'react';
 import WelcomeSection from '../components/WelcomeSection';
 import ServicesSection from '../components/ServicesSection';
@@ -13,18 +12,16 @@ export default function HomePage() {
   const [currentSection, setCurrentSection] = useState('welcome');
 
   return (
-    <div className="bg-custom-gradient min-h-screen flex flex-col relative">
-      <NavBar setCurrentSection={setCurrentSection} /> {/* Ensure the prop is passed here */}
-      <div className="pt-16 flex-grow"> {/* Ensure padding to avoid overlap with navbar */}
+    <div className="bg-custom-gradient min-h-screen flex flex-col">
+      <NavBar setCurrentSection={setCurrentSection} />
+      <div className="pt-16 pb-24 flex-grow"> {/* Added pb-24 to ensure space for footer */}
         {currentSection === 'welcome' && <WelcomeSection />}
         {currentSection === 'services' && <ServicesSection />}
         {currentSection === 'about' && <AboutUsSection />}
         {currentSection === 'contact' && <ContactSection />}
       </div>
       <ContactButton /> {/* Add the ContactButton component */}
-      <div className="absolute bottom-0 left-0 right-0 flex justify-center">
-        <Footer />
-      </div>
+      <Footer /> {/* Removed absolute positioning */}
     </div>
   );
 }
