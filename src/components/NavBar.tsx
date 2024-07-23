@@ -4,14 +4,17 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import logo from '../assets/logo.png'; // Adjust the path based on your project structure
 
-const NavBar = ({ setCurrentSection }) => {
+type NavBarProps = {
+  setCurrentSection: (section: string) => void;
+};
+
+const NavBar: React.FC<NavBarProps> = ({ setCurrentSection }) => {
   const [activeButton, setActiveButton] = useState<string | null>(null);
 
   const handleClick = (section: string) => {
-    setCurrentSection(section);
     setActiveButton(section);
+    setCurrentSection(section);
   };
-
   return (
     <nav className="fixed w-full bg-gradient-to-r from-blue-500 to-yellow-500 p-4 flex justify-between items-center shadow-md">
       <div className="flex items-center space-x-4"> {/* Added items-center for vertical alignment and space-x-4 for spacing */}
