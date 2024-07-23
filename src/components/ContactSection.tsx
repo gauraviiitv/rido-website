@@ -15,7 +15,7 @@ const ContactUs = () => {
 
       <div className="mt-6">
         <h3 className="text-xl font-semibold">Driver Support</h3>
-        <p>If you're a driver needing assistance or interested in joining our team, our driver support team is here to help.</p>
+        <p>If you&apos;re a driver needing assistance or interested in joining our team, our driver support team is here to help.</p>
         <p>Email:</p>
         <p>Phone:</p>
       </div>

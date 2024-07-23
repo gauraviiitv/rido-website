@@ -16,7 +16,7 @@ const AboutUsSection = () => (
     
     <h3 className="text-2xl font-semibold mt-4">Our Fleet</h3>
     <p>
-      Our diverse fleet of vehicles caters to all your transportation needs. Whether you're looking for a luxury sedan for a business trip, a spacious SUV for a family outing, or a convenient minivan for group travel, we have the perfect vehicle for you. Each vehicle is meticulously maintained to ensure a smooth and comfortable ride.
+      Our diverse fleet of vehicles caters to all your transportation needs. Whether you&apos;re looking for a luxury sedan for a business trip, a spacious SUV for a family outing, or a convenient minivan for group travel, we have the perfect vehicle for you. Each vehicle is meticulously maintained to ensure a smooth and comfortable ride.
     </p>
     
     <h3 className="text-2xl font-semibold mt-4">Our Team</h3>
