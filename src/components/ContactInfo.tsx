@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 
 interface ContactInfoProps {
   isOpen: boolean;
+  className?: string; // Add className property
 }
 
 const ContactInfo: React.FC<ContactInfoProps> = ({ isOpen }) => {
