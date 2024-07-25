@@ -20,7 +20,7 @@ body {
   background: transparent; /* Set background to transparent */
   @apply min-h-screen;
   @apply text-black;
-  @apply gradient-container;
+  @apply bg-white;
 }
 
 

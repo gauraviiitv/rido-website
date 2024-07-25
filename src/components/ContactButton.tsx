@@ -13,7 +13,7 @@ const ContactButton: React.FC<ContactButtonProps> = () => {
   return (
     <div className="fixed bottom-0 right-0 pb-4 flex flex-col items-end">
       <button
-        className="bg-white rounded-lg px-4 py-2 focus:outline-none w-full"
+        className="bg-yellow-400 rounded-lg px-4 py-2 focus:outline-none w-full" // Changed bg-white to bg-yellow-400
         onClick={handleClick}
       >
         Contact Us
