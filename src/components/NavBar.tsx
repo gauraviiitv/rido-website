@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useState } from 'react';
 import Image from 'next/image';
@@ -15,31 +15,39 @@ const NavBar: React.FC<NavBarProps> = ({ setCurrentSection }) => {
     setActiveButton(section);
     setCurrentSection(section);
   };
+
+  const handleLogoClick = () => {
+    setActiveButton(null); // Reset active button
+    setCurrentSection('welcome');
+  };
+
   return (
-    <nav className="fixed w-full bg-gradient-to-r from-blue-500 to-yellow-500 p-4 flex justify-between items-center shadow-md">
-      <div className="flex items-center space-x-4"> {/* Added items-center for vertical alignment and space-x-4 for spacing */}
-        <Image src={logo} alt="Logo" width={50} height={50} className="mr-4" /> {/* Adjust size as needed */}
+    <nav className="fixed w-full gradient-container p-4 flex justify-between items-center">
+      <div className="flex items-center space-x-4">
+        <button onClick={handleLogoClick} className="focus:outline-none ml-16">
+          <Image src={logo} alt="Logo" width={100} height={100} />
+        </button>
         <button
-          onClick={() => handleClick('welcome')}
-          className={`p-2 rounded ${activeButton === 'welcome' ? 'bg-white text-blue-500' : 'bg-transparent text-white'} transition-colors duration-300`}
+          onClick={() => handleClick('home')}
+          className={`p-2 rounded ${activeButton === 'home' ? 'bg-white' : 'bg-transparent text-black'} transition-colors duration-300`}
         >
           Home
         </button>
         <button
           onClick={() => handleClick('services')}
-          className={`p-2 rounded ${activeButton === 'services' ? 'bg-white text-blue-500' : 'bg-transparent text-white'} transition-colors duration-300`}
+          className={`p-2 rounded ${activeButton === 'services' ? 'bg-white' : 'bg-transparent text-black'} transition-colors duration-300`}
         >
           Services
         </button>
         <button
           onClick={() => handleClick('about')}
-          className={`p-2 rounded ${activeButton === 'about' ? 'bg-white text-blue-500' : 'bg-transparent text-white'} transition-colors duration-300`}
+          className={`p-2 rounded ${activeButton === 'about' ? 'bg-white' : 'bg-transparent text-black'} transition-colors duration-300`}
         >
           About Us
         </button>
         <button
           onClick={() => handleClick('contact')}
-          className={`p-2 rounded ${activeButton === 'contact' ? 'bg-white text-blue-500' : 'bg-transparent text-white'} transition-colors duration-300`}
+          className={`p-2 rounded ${activeButton === 'contact' ? 'bg-white' : 'bg-transparent text-black'} transition-colors duration-300`}
         >
           Contact
         </button>

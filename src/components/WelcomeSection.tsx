@@ -1,17 +1,36 @@
-import WhyChooseUs from './WhyChooseUs';
-import React from 'react';
+import Image from 'next/image';
+import mainImage from '../assets/main.png';
+import heroImage from '../assets/Hero.png';
 
-const WelcomeSection = () => (
-  <section className="p-8">
-    <h1 className="text-3xl font-bold">Welcome to Rido</h1>
-    <p className="mt-4 text-lg">
-      At Rido, we strive to provide you with the best transportation experience.
-      Whether you need a ride to the airport, a day of sightseeing, or a
-      comfortable commute to your next business meeting, our fleet of
-      well-maintained vehicles and professional drivers are here to serve you.
-    </p>
-    <WhyChooseUs />
-  </section>
-);
-
-export default WelcomeSection;
+const WelcomeSection: React.FC = () => {
+    return (
+      <div className="relative w-full h-screen gradient-container flex flex-col">
+        {/* Combined First and Third Containers */}
+        <div className="flex w-full items-start">
+          <div className="flex flex-col items-start w-2/3">
+            <Image
+              src={mainImage}
+              alt="Cars on road"
+              style={{ marginBottom: '0 rem' }} // Inline style for margin
+            />
+            <p className="text-2xl font-bold text-black text-center">
+              Book your ride now for a seamless, comfortable, and reliable travel experience
+            </p>
+          </div>
+  
+          {/* Combined Second and Fourth Containers */}
+          <div className="flex flex-col items-center w-1/3 space-y-8 mt-8">
+            <p className="text-xl font-semibold text-black text-center">
+              Start Journey with us....<br />And enjoy the ride!
+            </p>
+            <Image
+              src={heroImage}
+              alt="Character"
+            />
+          </div>
+        </div>
+      </div>
+    );
+  };
+  
+  export default WelcomeSection;

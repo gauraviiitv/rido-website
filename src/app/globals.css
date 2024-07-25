@@ -11,12 +11,16 @@
   }
 }
 
+.gradient-container {
+  background: linear-gradient(to right, rgb(113, 204, 209) , rgb(113, 204, 209), rgb(181, 198, 119), rgb(241, 192, 62));
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: transparent; /* Set background to transparent */
   @apply min-h-screen;
   @apply text-black;
-  @apply bg-gradient-to-b from-white to-green-200;
+  @apply gradient-container;
 }
 
 
@@ -29,4 +33,8 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+.gradient-container {
+  background: linear-gradient(to right, rgb(113, 204, 209) , rgb(113, 204, 209), rgb(181, 198, 119), rgb(241, 192, 62));
 }

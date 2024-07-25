@@ -1,5 +1,5 @@
 const Services = () => (
-  <section className="p-8">
+  <section className="p-8 bg-gradient-to-b from-white to-green-200">
     <h2 className="text-2xl font-bold">Our Services</h2>
     <ul className="mt-4 space-y-2">
       <li><strong>Airport Transfers:</strong> Hassle-free pick-up and drop-off at all major airports.</li>

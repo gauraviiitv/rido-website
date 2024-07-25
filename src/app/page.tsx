@@ -1,5 +1,6 @@
 "use client";
 import { useState } from 'react';
+import HomeSection from '../components/HomeSection';
 import WelcomeSection from '../components/WelcomeSection';
 import ServicesSection from '../components/ServicesSection';
 import AboutUsSection from '../components/AboutUsSection';
@@ -15,7 +16,8 @@ export default function HomePage() {
     <div className="bg-custom-gradient min-h-screen flex flex-col">
       <NavBar setCurrentSection={setCurrentSection} />
       <div className="pt-16 pb-24 flex-grow"> {/* Added pb-24 to ensure space for footer */}
-        {currentSection === 'welcome' && <WelcomeSection />}
+        {currentSection === 'welcome' && <WelcomeSection />}  
+        {currentSection === 'home' && <HomeSection />}
         {currentSection === 'services' && <ServicesSection />}
         {currentSection === 'about' && <AboutUsSection />}
         {currentSection === 'contact' && <ContactSection />}
