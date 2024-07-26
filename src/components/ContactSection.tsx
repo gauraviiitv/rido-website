@@ -3,42 +3,46 @@ const ContactUs = () => {
     <section className="p-8 bg-gradient-to-b from-white to-green-200">
       <h2 className="text-2xl font-bold">Get in Touch</h2>
       <p className="mt-4 text-lg">
-        At Rido, we value your feedback and are here to assist you with any questions or concerns. Whether you need help with a booking, have a suggestion, or require support, our dedicated customer service team is ready to provide you with prompt and professional assistance.
-      </p>
+      At Rido, we value your feedback and are here to assist you with any questions or concerns. Whether you need help with a booking, have a suggestion, or require support, our dedicated customer service team is ready to provide you with prompt and professional assistance.</p>
 
       <div className="mt-6">
         <h3 className="text-xl font-semibold">Customer Support</h3>
         <p>For any inquiries or assistance with bookings, please contact our customer support team.</p>
-        <p>Phone: 7070703844</p>
-        <p>Email: <a href="mailto:cabsrido@gmail.com" className="text-blue-500">cabsrido@gmail.com</a></p>
+        <p>Phone: 70-70-70-3844</p>
+        <p>Email: <a href="mailto:customers@ridocabs.com" className="text-blue-500">customers@ridocabs.com</a></p>
       </div>
 
       <div className="mt-6">
         <h3 className="text-xl font-semibold">Driver Support</h3>
         <p>If you&apos;re a driver needing assistance or interested in joining our team, our driver support team is here to help.</p>
-        <p>Email:</p>
-        <p>Phone:</p>
+        <p>Phone: 70-70-70-3844</p>
+        <p>Email: <a href="mailto:drivers@ridocabs.com" className="text-blue-500">drivers@ridocabs.com</a></p>
       </div>
 
       <div className="mt-6">
         <h3 className="text-xl font-semibold">Feedback and Suggestions</h3>
         <p>We love hearing from our customers. If you have any feedback or suggestions on how we can improve our services, please let us know.</p>
-        <p>Email:</p>
+        <p>Email: <a href="mailto:feedback@ridocabs.com" className="text-blue-500">feedback@ridocabs.com</a></p>
       </div>
 
       <div className="mt-6">
         <h3 className="text-xl font-semibold">Our Location</h3>
-        <p>Head Office:</p>
-        <p>Phone:</p>
-        <p>Email:</p>
+        <p>
+          Head Office:<br />
+          Patuaha, Saharsa, Near Maruti Suzuki Showroom, Patuaha, Saharsa, Bihar 852202
+        </p>
+        <p>Phone: 70-70-70-3844</p>
+        <p>Email: <a href="mailto:support@ridocabs.com" className="text-blue-500">support@ridocabs.com</a></p>
       </div>
+
 
       <div className="mt-6">
         <h3 className="text-xl font-semibold">Follow Us</h3>
-        <p>Facebook:</p>
-        <p>Twitter:</p>
-        <p>Instagram:</p>
-        <p>LinkedIn:</p>
+        <p>Facebook: facebook.com/cabsrido/</p>
+        <p>Twitter: twitter.com/ridocabs/</p>
+        <p>Instagram: Instagram.com/ridocabs/</p>
+        <p>LinkedIn: linkedin.com/in/ridocabs/</p>
+        <p>YouTube: youtube.com/@ridocabs/</p>
       </div>
     </section>
   );
