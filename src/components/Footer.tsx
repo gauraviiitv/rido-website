@@ -10,7 +10,7 @@ const Footer = () => (
         Terms and Conditions
       </Link>
     </div>
-    <p className="mt-2">&copy; 2024 Rido. All rights reserved.</p>
+    <p className="mt-2">Copyright &copy; 2024 Rido SP Services Private Limited. All rights reserved.</p>
   </footer>
 );
 
