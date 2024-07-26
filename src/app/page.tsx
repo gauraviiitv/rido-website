@@ -6,8 +6,8 @@ import ServicesSection from '../components/ServicesSection';
 import AboutUsSection from '../components/AboutUsSection';
 import ContactSection from '../components/ContactSection';
 import NavBar from '../components/NavBar';
-import Footer from '@/components/Footer';
-import ContactButton from '@/components/ContactButton';
+import Footer from '../components/Footer';
+import Help from '../components/HelpButton';
 
 export default function HomePage() {
   const [currentSection, setCurrentSection] = useState('welcome');
@@ -22,7 +22,7 @@ export default function HomePage() {
         {currentSection === 'about' && <AboutUsSection />}
         {currentSection === 'contact' && <ContactSection />}
       </div>
-      <ContactButton /> {/* Add the ContactButton component */}
+      <Help /> {/* Add the ContactButton component */}
       <Footer /> {/* Removed absolute positioning */}
     </div>
   );
