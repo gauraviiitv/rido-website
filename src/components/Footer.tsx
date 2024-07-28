@@ -1,17 +1,18 @@
-import Link from "next/link";
+import React from 'react';
 
-const Footer = () => (
-  <footer className="text-center w-full">
-    <div className="flex justify-center space-x-4">
-      <Link href="/privacy-policy" className="hover:underline mx-2">
-        Privacy Policy
-      </Link>
-      <Link href="/terms-and-conditions" className="hover:underline mx-2">
-        Terms and Conditions
-      </Link>
-    </div>
-    <p className="mt-2">Copyright &copy; 2024 Rido SP Services Private Limited. All rights reserved.</p>
-  </footer>
-);
+const Footer: React.FC = () => {
+  return (
+    <footer className="text-white text-center">
+      <div className="flex justify-center mt-6 pt-4 space-x-6">
+        <a href="#"><img src="/facebook.png" alt="Facebook" className="h-8" /></a>
+        <a href="#"><img src="/twitter.png" alt="Twitter" className="h-8" /></a>
+        <a href="#"><img src="/instagram.png" alt="Instagram" className="h-8" /></a>
+      </div>
+      <div className="border-t border-white mt-6 pt-2">
+        <b>Copyright &copy; 2024 Rido SP Services Private Limited. All rights reserved.</b>
+      </div>
+    </footer>
+  );
+};
 
 export default Footer;

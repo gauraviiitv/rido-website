@@ -1,32 +1,42 @@
 import Image from 'next/image';
-import mainImage from '../assets/main.png';
+import driver from '../assets/driver.png';
 import heroImage from '../assets/Hero.png';
+import carImage from '../assets/car.png';
 
 const WelcomeSection: React.FC = () => {
   return (
-    <div className="relative w-full h-screen gradient-container flex flex-col rounded-lg">
-      {/* Combined First and Third Containers */}
-      <div className="flex w-full items-start">
-        <div className="flex flex-col items-start w-2/3">
-          <Image
-            src={mainImage}
-            alt="Cars on road"
-          />
-          <p className="text-2xl font-bold text-black text-center">
-            Book your ride now for a seamless, comfortable, and reliable travel experience
-          </p>
-        </div>
-
-        {/* Combined Second and Fourth Containers */}
-        <div className="flex flex-col items-center w-1/3 space-y-8">
-          <p className="text-xl font-semibold text-black text-center">
-            Start Journey with us....<br />And enjoy the ride!
-          </p>
-          <Image
-            src={heroImage}
-            alt="Character"
-          />
-        </div>
+    <div className="relative curved-bottom w-full h-screen gradient-container flex flex-col">
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `url(${driver.src})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          opacity: 0.1,
+        }}
+      ></div>
+      
+      <div className="absolute text-black top-0 left-0 w-full flex flex-col items-center justify-center mt-12 z-10">
+        <h1 className="text-4xl font-bold">Across all the cities</h1>
+        <p className="text-xl mt-2">Travel Anywhere in Bihar Now...</p>
+      </div>
+      
+      <div className="absolute bottom-0 right-0 m-4 z-10">
+        <Image
+          src={heroImage}
+          alt="Character"
+          width={500} // Set desired width
+          height={500} // Set desired height
+        />
+      </div>
+      
+      <div className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10">
+        <Image
+          src={carImage}
+          alt="Car"
+          width={500} // Set desired width
+          height={500} // Set desired height
+        />
       </div>
     </div>
   );

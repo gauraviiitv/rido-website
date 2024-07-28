@@ -19,8 +19,7 @@ body {
   color: rgb(var(--foreground-rgb));
   background: transparent; /* Set background to transparent */
   @apply min-h-screen;
-  @apply text-black;
-  @apply bg-white;
+  @apply bg-gray-900;
 }
 
 
@@ -35,6 +34,6 @@ html {
   scroll-behavior: smooth;
 }
 
-.gradient-container {
-  background: linear-gradient(to right, rgb(113, 204, 209) , rgb(113, 204, 209), rgb(181, 198, 119), rgb(241, 192, 62));
+.curved-bottom {
+  clip-path: ellipse(80% 100% at 50% 0%);
 }
