@@ -1,7 +1,7 @@
 "use client"; // Add this directive at the top
 
 import React, { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { UserIcon, Bars3Icon } from '@heroicons/react/24/solid';
 import logo from '../assets/logo.png'; // Adjust the path based on your project structure
@@ -20,7 +20,11 @@ const Navbar: React.FC = () => {
   const router = useRouter();
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
   const [isMenuDropdownOpen, setIsMenuDropdownOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState<{ code: string, name: string, flag: FlagImage }>({ code: 'US', name: 'English', flag: usFlag }); // Default language
+  const [selectedLanguage, setSelectedLanguage] = useState<{ code: string, name: string, flag: FlagImage }>({
+    code: 'US',
+    name: 'English',
+    flag: usFlag
+  }); // Default language
 
   const languages = [
     { code: 'IN', name: 'हिंदी', flag: indFlag },

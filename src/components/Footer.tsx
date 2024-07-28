@@ -16,12 +16,24 @@ const Footer = () => {
           <div className="mt-6 pt-2 flex flex-col">
             <Image src={logo1} height={100} width={150} alt="Rido Logo" className="h-16 mb-4" />
             <div className="flex space-x-4">
-              <Image src={facebookIcon} alt="Facebook" className="h-6 w-6" />
-              <Image src={instagramIcon} alt="Instagram" className="h-6 w-6" />
-              <Image src={xIcon} alt="X(formerly Twitter)" className="h-6 w-6" />
-              <Image src={threadIcon} alt="Google" className="h-6 w-6" />
-              <Image src={linkedinIcon} alt="LinkedIn" className="h-6 w-6" />
-              <Image src={youtubeIcon} alt="YouTube" className="h-6 w-6" />
+              <a href="https://www.facebook.com/cabsrido" target="_blank" rel="noopener noreferrer">
+                <Image src={facebookIcon} alt="Facebook" className="h-6 w-6" />
+              </a>
+              <a href="https://www.instagram.com/ridocabs/" target="_blank" rel="noopener noreferrer">
+                <Image src={instagramIcon} alt="Instagram" className="h-6 w-6" />
+              </a>
+              <a href="https://x.com/ridocabs/" target="_blank" rel="noopener noreferrer">
+                <Image src={xIcon} alt="X (formerly Twitter)" className="h-6 w-6" />
+              </a>
+              <a href="https://www.threads.net/ridocabs/" target="_blank" rel="noopener noreferrer">
+                <Image src={threadIcon} alt="Threads" className="h-6 w-6" />
+              </a>
+              <a href="https://www.linkedin.com/in/ridocabs/" target="_blank" rel="noopener noreferrer">
+                <Image src={linkedinIcon} alt="LinkedIn" className="h-6 w-6" />
+              </a>
+              <a href="https://www.youtube.com/@ridocabs/" target="_blank" rel="noopener noreferrer">
+                <Image src={youtubeIcon} alt="YouTube" className="h-6 w-6" />
+              </a>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">

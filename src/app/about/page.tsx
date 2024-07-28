@@ -1,13 +1,9 @@
+import CloseButton from '@/components/CloseButton';
 import React from 'react';
 
 const AboutUsPage = () => (
   <section className="relative px-32 p-8 bg-gradient-to-b from-white to-green-200">
-    <a 
-      href="/" 
-      className="absolute mt-10 top-4 right-32 text-3xl font-bold"
-    >
-      &times;
-    </a>
+    <CloseButton  />
     <h2 className="mt-8 text-center text-4xl mb-8 font-bold">About Us</h2>
     <h3 className="text-2xl font-semibold mt-4">Welcome to Rido</h3>
     <p>

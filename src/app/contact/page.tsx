@@ -1,14 +1,10 @@
+import CloseButton from '@/components/CloseButton';
 import React from 'react';
 
 const ContactUsPage = () => {
   return (
     <section className="p-8 px-32 bg-gradient-to-b from-white to-green-200">
-        <a 
-      href="/" 
-      className="absolute mt-10 top-4 right-32 text-3xl font-bold"
-    >
-      &times;
-    </a>
+        <CloseButton/>
     <h2 className="mt-8 text-center text-4xl mb-8 font-bold">Contact Us</h2>
       <h2 className="text-2xl font-bold">Get in Touch</h2>
       <p className="mt-4 text-lg">
