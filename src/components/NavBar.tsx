@@ -1,6 +1,7 @@
 "use client"; // Add this directive at the top
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { UserIcon, Bars3Icon } from '@heroicons/react/24/solid';
 import logo from '../assets/logo.png'; // Adjust the path based on your project structure
@@ -16,6 +17,7 @@ type FlagImage = {
 };
 
 const Navbar: React.FC = () => {
+  const router = useRouter();
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
   const [isMenuDropdownOpen, setIsMenuDropdownOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState<{ code: string, name: string, flag: FlagImage }>({ code: 'US', name: 'English', flag: usFlag }); // Default language
@@ -25,6 +27,10 @@ const Navbar: React.FC = () => {
     { code: 'US', name: 'English', flag: usFlag },
     { code: 'NP', name: 'मैथिली', flag: indFlag }
   ];
+
+  const handleClick = () => {
+    router.push('/');
+  };
 
   const toggleLanguageDropdown = () => {
     setIsLanguageDropdownOpen(!isLanguageDropdownOpen);
@@ -44,7 +50,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className="fixed w-full gradient-container p-2 flex justify-between items-center z-50">
       <div className="flex items-center space-x-4">
-        <button className="focus:outline-none">
+        <button onClick={handleClick} className="focus:outline-none">
           <Image src={logo} alt="Logo" width={100} height={100} />
         </button>
       </div>

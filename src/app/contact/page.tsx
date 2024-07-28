@@ -1,9 +1,19 @@
-const ContactUs = () => {
+import React from 'react';
+
+const ContactUsPage = () => {
   return (
-    <section className="p-8 bg-gradient-to-b from-white to-green-200">
+    <section className="p-8 px-32 bg-gradient-to-b from-white to-green-200">
+        <a 
+      href="/" 
+      className="absolute mt-10 top-4 right-32 text-3xl font-bold"
+    >
+      &times;
+    </a>
+    <h2 className="mt-8 text-center text-4xl mb-8 font-bold">Contact Us</h2>
       <h2 className="text-2xl font-bold">Get in Touch</h2>
       <p className="mt-4 text-lg">
-      At Rido, we value your feedback and are here to assist you with any questions or concerns. Whether you need help with a booking, have a suggestion, or require support, our dedicated customer service team is ready to provide you with prompt and professional assistance.</p>
+        At Rido, we value your feedback and are here to assist you with any questions or concerns. Whether you need help with a booking, have a suggestion, or require support, our dedicated customer service team is ready to provide you with prompt and professional assistance.
+      </p>
 
       <div className="mt-6">
         <h3 className="text-xl font-semibold">Customer Support</h3>
@@ -14,7 +24,7 @@ const ContactUs = () => {
 
       <div className="mt-6">
         <h3 className="text-xl font-semibold">Driver Support</h3>
-        <p>If you&apos;re a driver needing assistance or interested in joining our team, our driver support team is here to help.</p>
+        <p>If you're a driver needing assistance or interested in joining our team, our driver support team is here to help.</p>
         <p>Phone: 70-70-70-3855</p>
         <p>Email: <a href="mailto:drivers@ridocabs.com" className="text-blue-500">drivers@ridocabs.com</a></p>
       </div>
@@ -38,4 +48,4 @@ const ContactUs = () => {
   );
 };
 
-export default ContactUs;
+export default ContactUsPage;

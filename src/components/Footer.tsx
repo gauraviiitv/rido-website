@@ -10,7 +10,7 @@ import youtubeIcon from '../assets/youtube.png';
 
 const Footer = () => {
   return (
-    <footer className="text-white mt-6 pt-2 border-t border-white">
+    <footer className="text-white pt-2 border-t border-white">
       <div className="container mx-auto px-4">
         <div className="flex justify-between">
           <div className="mt-6 pt-2 flex flex-col">
@@ -46,8 +46,8 @@ const Footer = () => {
             <div className="col-span-1">
               <h3 className="font-bold mb-4">COMPANY</h3>
               <ul>
-                <li className="mb-2"><a href="#" className="text-gray-300">About us</a></li>
-                <li className="mb-2"><a href="#" className="text-gray-300">Contact us</a></li>
+                <li className="mb-2"><a href="/about" className="text-gray-300">About us</a></li>
+                <li className="mb-2"><a href="/contact" className="text-gray-300">Contact us</a></li>
                 <li className="mb-2"><a href="#" className="text-gray-300">Career</a></li>
               </ul>
             </div>

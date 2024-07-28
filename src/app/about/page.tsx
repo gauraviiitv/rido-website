@@ -1,8 +1,15 @@
 import React from 'react';
 
-const AboutUsSection = () => (
-  <section className="p-8 bg-gradient-to-b from-white to-green-200">
-    <h2 className="text-2xl font-bold">About Us</h2>
+const AboutUsPage = () => (
+  <section className="relative px-32 p-8 bg-gradient-to-b from-white to-green-200">
+    <a 
+      href="/" 
+      className="absolute mt-10 top-4 right-32 text-3xl font-bold"
+    >
+      &times;
+    </a>
+    <h2 className="mt-8 text-center text-4xl mb-8 font-bold">About Us</h2>
+    <h3 className="text-2xl font-semibold mt-4">Welcome to Rido</h3>
     <p>
       We believe that every journey should be a pleasant and memorable experience. Established in 2024, our mission has been to provide safe, reliable, and comfortable transportation solutions for our valued customers. We understand the importance of punctuality, convenience, and professionalism, which is why we go above and beyond to exceed your expectations.
     </p>
@@ -12,11 +19,9 @@ const AboutUsSection = () => (
       Rido was founded by Mr. Satyam Krishna with a vision to revolutionize the transportation industry. With years of experience and a passion for customer service, Satyam Krishna set out to create a cab rental service that offers more than just a ride. From humble beginnings, we have grown into a trusted name in the industry, known for our dedication to quality and excellence.
     </p>
     
-    
-    
     <h3 className="text-2xl font-semibold mt-4">Our Fleet</h3>
     <p>
-      Our diverse fleet of vehicles caters to all your transportation needs. Whether you&apos;re looking for a luxury sedan for a business trip, a spacious SUV for a family outing, or a convenient minivan for group travel, we have the perfect vehicle for you. Each vehicle is meticulously maintained to ensure a smooth and comfortable ride.
+      Our diverse fleet of vehicles caters to all your transportation needs. Whether you're looking for a luxury sedan for a business trip, a spacious SUV for a family outing, or a convenient minivan for group travel, we have the perfect vehicle for you. Each vehicle is meticulously maintained to ensure a smooth and comfortable ride.
     </p>
     
     <h3 className="text-2xl font-semibold mt-4">Our Team</h3>
@@ -31,4 +36,4 @@ const AboutUsSection = () => (
   </section>
 );
 
-export default AboutUsSection;
+export default AboutUsPage;

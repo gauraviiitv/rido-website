@@ -1,5 +1,3 @@
-import Navbar from '../components/NavBar';
-import Footer from '../components/Footer';
 import HomeSection from '../components/Home/HomeSection';
 import WelcomeSection from '../components/WelcomeSection';
 import WhyChooseUs from '../components/WhyChooseUs';
@@ -10,14 +8,12 @@ import FAQ from '../components/FAQ';
 const Home: React.FC = () => {
   return (
     <div>
-      <Navbar />
       <HomeSection />
       <WelcomeSection />
       <WhyChooseUs />
       <RidoForEveryone />
       <JourneyBanner />
       <FAQ />
-      <Footer />
     </div>
   );
 };
