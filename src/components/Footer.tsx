@@ -3,7 +3,7 @@ import Image from 'next/image';
 import logo1 from '../assets/logo1.png'; // replace with actual logo path
 import facebookIcon from '../assets/facebook.png';
 import instagramIcon from '../assets/instagram.png';
-import xIcon from '../assets/x.png';
+import xIcon from '../assets/X.png';
 import threadIcon from '../assets/thread.png';
 import linkedinIcon from '../assets/linkedin.png';
 import youtubeIcon from '../assets/youtube.png';
