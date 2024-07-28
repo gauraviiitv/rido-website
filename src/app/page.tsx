@@ -1,12 +1,11 @@
 import Navbar from '../components/NavBar';
-// import Hero from '../components/Hero';
-// import Features from '../components/Features';
-// import Services from '../components/Services';
-// import Booking from '../components/Booking';
 import Footer from '../components/Footer';
 import HomeSection from '../components/Home/HomeSection';
 import WelcomeSection from '../components/WelcomeSection';
 import WhyChooseUs from '../components/WhyChooseUs';
+import RidoForEveryone from '../components/RidoForEveryone';
+import JourneyBanner from '../components/JourneyBanner';
+import FAQ from '../components/FAQ';
 
 const Home: React.FC = () => {
   return (
@@ -14,7 +13,10 @@ const Home: React.FC = () => {
       <Navbar />
       <HomeSection />
       <WelcomeSection />
-      {/* <WhyChooseUs /> */}
+      <WhyChooseUs />
+      <RidoForEveryone />
+      <JourneyBanner />
+      <FAQ />
       <Footer />
     </div>
   );

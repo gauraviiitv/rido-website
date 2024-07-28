@@ -17,7 +17,7 @@ const WelcomeSection: React.FC = () => {
       ></div>
       
       <div className="absolute text-black top-0 left-0 w-full flex flex-col items-center justify-center mt-12 z-10">
-        <h1 className="text-4xl font-bold">Across all the cities</h1>
+        <h1 className="text-6xl font-bold">Across all the cities</h1>
         <p className="text-xl mt-2">Travel Anywhere in Bihar Now...</p>
       </div>
       
@@ -34,8 +34,8 @@ const WelcomeSection: React.FC = () => {
         <Image
           src={carImage}
           alt="Car"
-          width={500} // Set desired width
-          height={500} // Set desired height
+          width={400} // Set desired width
+          height={400} // Set desired height
         />
       </div>
     </div>

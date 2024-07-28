@@ -19,7 +19,7 @@ body {
   color: rgb(var(--foreground-rgb));
   background: transparent; /* Set background to transparent */
   @apply min-h-screen;
-  @apply bg-gray-900;
+  background: rgb(32, 52, 65);
 }
 
 
@@ -36,4 +36,7 @@ html {
 
 .curved-bottom {
   clip-path: ellipse(80% 100% at 50% 0%);
+}
+.bg-green1 {
+  background: rgb(30, 153, 150);
 }
