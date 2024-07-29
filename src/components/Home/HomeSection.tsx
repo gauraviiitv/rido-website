@@ -1,18 +1,23 @@
 import React from 'react';
 import './HomeSection.css'; // Make sure to import the CSS file
+import Image from 'next/image';
+import welcomeImage from '@/assets/Welcome.png';
 
 const HomeSection = () => (
-  <section className="pt-20 gradient-background">
+  <section className="pt-20 curved-bottom gradient-background">
     <div className="flex mb-2 pt-2 items-center justify-center">
-      <h1 className="text-3xl text-white font-bold">Welcome to Rido</h1> {/* Heading font size unchanged */}
+      <p className="lg:text-3xl md:text-xl text-white font-bold">Welcome to Rido</p>
     </div>
     <div className="flex pt-2 justify-center">
-      <p className="text-white text-sm pb-4 mx-32 text-center">
+      <p className="text-white md:text-xs lg:text-sm pb-2 md:mx-16 lg:mx-32 text-center">
         At Rido, we strive to provide you with the best transportation experience.
         Whether you need a ride to the airport, a day of sightseeing, or a
         comfortable commute to your next business meeting, our fleet of
         well-maintained vehicles and professional drivers are here to serve you.
       </p>
+    </div>
+    <div className="flex justify-center">
+      <Image src={welcomeImage} alt="Welcome" className='curved-bottom'/>
     </div>
   </section>
 );
