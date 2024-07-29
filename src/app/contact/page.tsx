@@ -3,9 +3,9 @@ import React from 'react';
 
 const ContactUsPage = () => {
   return (
-    <section className="p-8 px-32 bg-gradient-to-b from-white to-green-200">
+    <section className="p-8 px-32 text-justify bg-gradient-to-b from-white to-green-200">
       <CloseButton />
-      <h2 className="mt-8 mb-8 text-center text-4xl font-bold">Contact Us</h2>
+      <h2 className="mt-16 mb-8 text-center text-4xl font-bold">Contact Us</h2>
       <h2 className="text-2xl font-bold">Get in Touch</h2>
       <p className="mt-4 text-lg">
         At Rido, we value your feedback and are here to assist you with any questions or concerns. Whether you need help with a booking, have a suggestion, or require support, our dedicated customer service team is ready to provide you with prompt and professional assistance.

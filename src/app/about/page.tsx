@@ -2,9 +2,9 @@ import CloseButton from '@/components/CloseButton';
 import React from 'react';
 
 const AboutUsPage = () => (
-  <section className="relative p-8 px-32 bg-gradient-to-b from-white to-green-200">
+  <section className="relative text-justify p-8 px-32 bg-gradient-to-b from-white to-green-200">
     <CloseButton />
-    <h2 className="mt-8 mb-8 text-center text-4xl font-bold">About Us</h2>
+    <h2 className="mt-16 mb-8 text-center text-4xl font-bold">About Us</h2>
     <h3 className="mt-4 text-2xl font-semibold">Welcome to Rido</h3>
     <p className="mt-2">
       We believe that every journey should be a pleasant and memorable experience. Established in 2024, our mission has been to provide safe, reliable, and comfortable transportation solutions for our valued customers. We understand the importance of punctuality, convenience, and professionalism, which is why we go above and beyond to exceed your expectations.

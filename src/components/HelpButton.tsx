@@ -4,7 +4,7 @@ import React, { use, useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import whatsapp from '../assets/Whatsapp.png'; // Adjust the path based on your project structure
+import whatsapp from '../assets/social/Whatsapp.png'; // Adjust the path based on your project structure
 import phone from '../assets/phone.png'; // Adjust the path based on your project structure
 import help from '../assets/help.png'; // Import the help image
 
@@ -32,19 +32,19 @@ const Help: React.FC<HelpProps> = ({ className }) => {
           <p className="mb-2 flex items-center space-x-2">
             <Link href="tel:+917070703855" target="_blank" className="hover:underline text-xs flex items-center space-x-2">
               <Image src={phone} width={20} height={20} alt="Phone" />
-              <span>Call Customer Care: 70 70 70 3855</span>
+              <span>Call Customer Care: 7070703855</span>
             </Link>
           </p>
           <p className="mb-2 flex items-center space-x-2">
             <Link href="tel:+917070703855" target="_blank" className="hover:underline text-xs flex items-center space-x-2">
               <Image src={phone} width={20} height={20} alt="Phone" />
-              <span>Call Driver Executive: 70 70 70 3855</span>
+              <span>Call Driver Executive: 7070703855</span>
             </Link>
           </p>
           <p className="mb-2 flex items-center space-x-2">
             <Link href="tel:+917070703855" target="_blank" className="hover:underline text-xs flex items-center space-x-2">
               <Image src={phone} width={20} height={20} alt="Phone" />
-              <span>Technical Support: 70 70 70 3855</span>
+              <span>Technical Support: 7070703855</span>
             </Link>
           </p>
           <p className="mb-2 flex items-center space-x-2">
