@@ -31,14 +31,14 @@ const RidoDriverPage = () => {
       <p>
         User-Friendly App: Our intuitive driver app makes it easy to manage bookings, navigate routes, and communicate with passengers.
         <br />
-        Real-Time Support: Access 24/7 support to assist you with any issues or concerns while you're on the road.
+        Real-Time Support: Access 24/7 support to assist you with any issues or concerns while you&aposre on the road.
       </p>
       
       <h4 className="text-lg font-semibold mt-2">4. Extensive Customer Base</h4>
       <p>
         High Demand: Benefit from a steady stream of ride requests, thanks to our large and loyal customer base.
         <br />
-        Regular Riders: Build relationships with regular passengers who trust and prefer Rido's reliable service.
+        Regular Riders: Build relationships with regular passengers who trust and prefer Rido&aposs reliable service.
       </p>
       
       <h4 className="text-lg font-semibold mt-2">5. Safety and Security</h4>
