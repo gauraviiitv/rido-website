@@ -25,7 +25,7 @@ const RidoRentalPage = () => {
 
       <p className="mt-4 text-lg">
         <strong>Step 3: Pick Up Your Car</strong><br />
-        Visit our location or opt for our convenient delivery service. We’ll have your vehicle ready and waiting for you.
+        Visit our location or opt for our convenient delivery service. We&apos;ll have your vehicle ready and waiting for you.
       </p>
 
       <p className="mt-4 text-lg">

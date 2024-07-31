@@ -4,12 +4,12 @@ import CloseButton from '@/components/CloseButton';
 const TermsAndConditionsPage = () => {
   return (
     <section className="relative text-justify p-8 px-32 bg-gradient-to-b from-white to-green-200">
-    <CloseButton />
-    <h2 className="mt-16 mb-8 text-center text-4xl font-bold">Terms and Conditions</h2>
+      <CloseButton />
+      <h2 className="mt-16 mb-8 text-center text-4xl font-bold">Terms and Conditions</h2>
       <p className="text-sm text-gray-500">Last updated on Jul 31 2024</p>
 
       <p className="mt-4 text-lg">
-        For the purpose of these Terms and Conditions, the terms "we", "us", "our" used anywhere on this page shall mean RIDO SP SERVICES PRIVATE LIMITED, whose registered/operational office is Patuaha, Ward no 21, Near Ramjanki Thakurbari, Saharsa Saharsa BIHAR 852202. "you", "your", "user", "visitor" shall mean any natural or legal person who is visiting our website and/or agreed to purchase from us.
+        For the purpose of these Terms and Conditions, the terms &quot;we&quot;, &quot;us&quot;, &quot;our&quot; used anywhere on this page shall mean RIDO SP SERVICES PRIVATE LIMITED, whose registered/operational office is Patuaha, Ward no 21, Near Ramjanki Thakurbari, Saharsa Saharsa BIHAR 852202. &quot;you&quot;, &quot;your&quot;, &quot;user&quot;, &quot;visitor&quot; shall mean any natural or legal person who is visiting our website and/or agreed to purchase from us.
       </p>
 
       <p className="mt-4 text-lg">
