@@ -30,7 +30,7 @@ const RidoRentalPage = () => {
 
       <p className="mt-4 text-lg">
         <strong>Step 4: Enjoy Your Ride</strong><br />
-        Whether you're driving around the city or hitting the open road, enjoy the freedom and convenience of your rental.
+        Whether you&apos;re driving around the city or hitting the open road, enjoy the freedom and convenience of your rental.
       </p>
 
       <h3 className="mt-8 mb-4 text-2xl font-bold">Fleet Options</h3>
