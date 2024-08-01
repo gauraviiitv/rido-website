@@ -4,6 +4,7 @@ import customerImage from '../assets/customer.jpg'; // replace with actual image
 import driverImage from '../assets/driver1.jpg';
 import parcelImage from '../assets/parcel.jpg';
 import businessImage from '../assets/business.jpg';
+import journeyImage from '../assets/journey.png';
 
 const RidoForEveryone = () => {
   const features = [
@@ -30,9 +31,9 @@ const RidoForEveryone = () => {
   ];
 
   return (
-    <div className="p-8">
+    <div>
       <h2 className="text-3xl font-bold mb-4 text-center text-white underline">Rido for Everyone</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 p-8">
         {features.map((feature, index) => (
           <div key={index} className="bg-white p-2 rounded-3xl shadow-md flex flex-col justify-between">
             <div className="flex-grow flex flex-col justify-between">
@@ -46,6 +47,9 @@ const RidoForEveryone = () => {
             </div>
           </div>
         ))}
+      </div>
+      <div className="flex justify-center mt-8 p-0">
+        <Image src={journeyImage} alt="Journey Image" className="w-full" />
       </div>
     </div>
   );

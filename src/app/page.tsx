@@ -1,7 +1,6 @@
 import HomeSection from '../components/Home/HomeSection';
 import WhyChooseUs from '../components/WhyChooseUs';
 import RidoForEveryone from '../components/RidoForEveryone';
-import JourneyBanner from '../components/JourneyBanner';
 import FAQ from '../components/FAQ';
 
 const Home: React.FC = () => {
@@ -10,7 +9,6 @@ const Home: React.FC = () => {
       <HomeSection />
       <WhyChooseUs />
       <RidoForEveryone />
-      <JourneyBanner />
       <FAQ />
     </div>
   );

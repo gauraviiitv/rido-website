@@ -30,12 +30,12 @@ const FAQ = () => {
 
   return (
     <div className="p-8">
-      <h2 className="text-2xl font-bold mb-4 text-white">Frequently Asked Questions</h2>
+      <h2 className="text-xl md:text-2xl font-bold mb-4 text-white">Frequently Asked Questions</h2>
       <div className="space-y-4">
         {faqs.map((faq, index) => (
           <div key={index}>
-            <h3 className="text-lg font-semibold text-white">Q: {faq.question}</h3>
-            <p className="text-sm text-gray-300">A: {faq.answer}</p>
+            <h3 className="text-base md:text-lg font-semibold text-white">Q: {faq.question}</h3>
+            <p className="text-xs md:text-sm text-gray-300">A: {faq.answer}</p>
           </div>
         ))}
       </div>
