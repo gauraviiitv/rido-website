@@ -13,22 +13,22 @@ const Footer = () => {
     <footer className="text-white pt-2 border-t border-white">
       <div className="container mx-auto">
         <div className="flex justify-end md:ml-8 lg:ml-16"> 
-          <div className="grid grid-cols-3 gap-8 px-4 mx-auto md:px-0">
+          <div className="grid grid-cols-4 gap-8 px-4 mx-auto md:px-0"> {/* Updated to 4 columns */}
             <div className="col-span-1">
               <h3 className="font-bold mb-4 text-sm md:text-base">JOIN US</h3>
               <ul>
                 <li className="mb-2"><a href="/driver" className="text-gray-300 text-sm md:text-base">Rido driver</a></li>
                 <li className="mb-2"><a href="/business" className="text-gray-300 text-sm md:text-base">Rido business</a></li>
-                <li className="mb-2"><a href="#" className="text-gray-300 text-sm md:text-base">Rido Customer</a></li>
+                {/* <li className="mb-2"><a href="#" className="text-gray-300 text-sm md:text-base">Rido Customer</a></li> */}
                 <li className="mb-2"><a href="/parcel" className="text-gray-300 text-sm md:text-base">Rido Parcel</a></li>
               </ul>
             </div>
             <div className="col-span-1">
               <h3 className="font-bold mb-4 text-sm md:text-base">SERVICE</h3>
               <ul>
-                <li className="mb-2"><a href="#" className="text-gray-300 text-sm md:text-base">Book a cab</a></li>
+                {/* <li className="mb-2"><a href="#" className="text-gray-300 text-sm md:text-base">Book a cab</a></li> */}
                 <li className="mb-2"><a href="/rental" className="text-gray-300 text-sm md:text-base">Rental</a></li>
-                <li className="mb-2"><a href="#" className="text-gray-300 text-sm md:text-base">Occasional booking</a></li>
+                {/* <li className="mb-2"><a href="#" className="text-gray-300 text-sm md:text-base">Occasional booking</a></li> */}
                 <li className="mb-2"><a href="/ridomoney" className="text-gray-300 text-sm md:text-base">Rido money</a></li>
               </ul>
             </div>
@@ -37,7 +37,15 @@ const Footer = () => {
               <ul>
                 <li className="mb-2"><a href="/about" className="text-gray-300 text-sm md:text-base">About us</a></li>
                 <li className="mb-2"><a href="/contact" className="text-gray-300 text-sm md:text-base">Contact us</a></li>
-                <li className="mb-2"><a href="#" className="text-gray-300 text-sm md:text-base">Career</a></li>
+                {/* <li className="mb-2"><a href="#" className="text-gray-300 text-sm md:text-base">Career</a></li> */}
+                {/* <li className="mb-2"><a href="/terms&conditions" className="text-gray-300 text-sm md:text-base">Terms & Conditions</a></li>
+                <li className="mb-2"><a href="/privacy-policy" className="text-gray-300 text-sm md:text-base">Privacy Policy</a></li>
+                <li className="mb-2"><a href="/cancellation-policy" className="text-gray-300 text-sm md:text-base">Cancellation & Refund Policy</a></li> */}
+              </ul>
+            </div>
+            <div className="col-span-1">
+              <h3 className="font-bold mb-4 text-sm md:text-base">POLICIES</h3>
+              <ul>
                 <li className="mb-2"><a href="/terms&conditions" className="text-gray-300 text-sm md:text-base">Terms & Conditions</a></li>
                 <li className="mb-2"><a href="/privacy-policy" className="text-gray-300 text-sm md:text-base">Privacy Policy</a></li>
                 <li className="mb-2"><a href="/cancellation-policy" className="text-gray-300 text-sm md:text-base">Cancellation & Refund Policy</a></li>
