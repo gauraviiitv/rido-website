@@ -49,6 +49,10 @@ const Navbar: React.FC = () => {
     setIsLanguageDropdownOpen(false); // Close the dropdown after selection
   };
 
+  const handleNavigation = (path: string) => {
+    router.push(path);
+  };
+
   return (
     <nav className="fixed w-full gradient-container p-2 flex justify-between items-center z-50">
       <div className="flex items-center space-x-4">
@@ -86,20 +90,20 @@ const Navbar: React.FC = () => {
         </div>
         {/* <button className="bg-white text-black flex items-center px-2 rounded-full">
           <UserIcon className="h-4 w-4 text-black" />
-          <span>Log In</span> */}
-        {/* </button> */}
+          <span>Log In</span>
+        </button> */}
         <div className="relative">
           <button onClick={toggleMenuDropdown} className="focus:outline-none">
             <Bars3Icon className=" mt-2 h-8 w-8 text-black" /> {/* Increased the size here */}
           </button>
           {isMenuDropdownOpen && (
-            <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg">
-              <a href="#" className="block px-4 py-2 text-black hover:bg-gray-100 rounded-lg">Book a ride</a>
-              <a href="#" className="block px-4 py-2 text-black hover:bg-gray-100 rounded-lg">Drive with us</a>
-              <a href="#" className="block px-4 py-2 text-black hover:bg-gray-100 rounded-lg">Rido rental</a>
-              <a href="#" className="block px-4 py-2 text-black hover:bg-gray-100 rounded-lg">Rido money</a>
-              <a href="#" className="block px-4 py-2 text-black hover:bg-gray-100 rounded-lg">Rido business</a>
-              <a href="#" className="block px-4 py-2 text-black hover:bg-gray-100 rounded-lg">Customer support</a>
+            <div className="absolute right-0 mt-2 w-36 bg-white border border-gray-200 rounded-lg shadow-lg">
+              {/* <button onClick={() => handleNavigation('/book-a-ride')} className="block py-2 text-black hover:bg-gray-100 w-full rounded-lg">Book a ride</button> */}
+              <button onClick={() => handleNavigation('/driver')} className="block py-2 text-black hover:bg-gray-100 w-full text-left rounded-lg">Drive with us</button>
+              <button onClick={() => handleNavigation('/rental')} className="block py-2 text-black hover:bg-gray-100 w-full text-left rounded-lg">Rido rental</button>
+              <button onClick={() => handleNavigation('/ridomoney')} className="block py-2 text-black hover:bg-gray-100 w-full text-left rounded-lg">Rido money</button>
+              <button onClick={() => handleNavigation('/business')} className="block py-2 text-black hover:bg-gray-100 w-full text-left rounded-lg">Rido business</button>
+              {/* <button onClick={() => handleNavigation('/customer-support')} className="block py-2 text-black hover:bg-gray-100 w-full text-left rounded-lg">Customer support</button> */}
             </div>
           )}
         </div>

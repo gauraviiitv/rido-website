@@ -3,7 +3,7 @@ import React from 'react';
 
 const ContactUsPage = () => {
   return (
-    <section className="p-8 px-32 text-justify bg-gradient-to-b from-white to-green-200">
+    <section className="p-8 md:px-32 text-justify bg-gradient-to-b from-white to-green-200">
       <CloseButton />
       <h2 className="mt-16 mb-8 text-center text-4xl font-bold">Contact Us</h2>
       <h2 className="text-2xl font-bold">Get in Touch</h2>

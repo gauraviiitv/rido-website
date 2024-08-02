@@ -2,7 +2,7 @@ import CloseButton from '@/components/CloseButton';
 import React from 'react';
 
 const AboutUsPage = () => (
-  <section className="relative text-justify p-8 px-32 bg-gradient-to-b from-white to-green-200">
+  <section className="relative text-justify p-8 md:px-32 bg-gradient-to-b from-white to-green-200">
     <CloseButton />
     <h2 className="mt-16 mb-8 text-center text-4xl font-bold">About Us</h2>
     <h3 className="mt-4 text-2xl font-semibold">Welcome to Rido</h3>

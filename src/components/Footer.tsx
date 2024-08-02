@@ -1,5 +1,8 @@
+"use client"; // Add this directive at the top
+
 import React from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import logo1 from '../assets/logo1.png'; // replace with actual logo path
 import facebookIcon from '../assets/social/facebook.png';
 import instagramIcon from '../assets/social/instagram.png';
@@ -9,6 +12,12 @@ import linkedinIcon from '../assets/social/linkedin.png';
 import youtubeIcon from '../assets/social/youtube.png';
 
 const Footer = () => {
+  const router = useRouter();
+
+  const handleNavigation = (path: string) => {
+    router.push(path);
+  };
+
   return (
     <footer className="text-white pt-2 border-t border-white">
       <div className="container mx-auto">
@@ -17,38 +26,157 @@ const Footer = () => {
             <div className="col-span-1">
               <h3 className="font-bold mb-4 text-sm md:text-base">JOIN US</h3>
               <ul>
-                <li className="mb-2"><a href="/driver" className="text-gray-300 text-sm md:text-base">Rido driver</a></li>
-                <li className="mb-2"><a href="/business" className="text-gray-300 text-sm md:text-base">Rido business</a></li>
-                {/* <li className="mb-2"><a href="#" className="text-gray-300 text-sm md:text-base">Rido Customer</a></li> */}
-                <li className="mb-2"><a href="/parcel" className="text-gray-300 text-sm md:text-base">Rido Parcel</a></li>
+                <li className="mb-2">
+                  <button 
+                    onClick={() => handleNavigation('/driver')}
+                    className="text-gray-300 text-sm md:text-base"
+                  >
+                    Rido driver
+                  </button>
+                </li>
+                <li className="mb-2">
+                  <button 
+                    onClick={() => handleNavigation('/business')}
+                    className="text-gray-300 text-sm md:text-base"
+                  >
+                    Rido business
+                  </button>
+                </li>
+                {/* <li className="mb-2">
+                  <button 
+                    onClick={() => handleNavigation('#')}
+                    className="text-gray-300 text-sm md:text-base"
+                  >
+                    Rido Customer
+                  </button>
+                </li> */}
+                <li className="mb-2">
+                  <button 
+                    onClick={() => handleNavigation('/parcel')}
+                    className="text-gray-300 text-sm md:text-base"
+                  >
+                    Rido Parcel
+                  </button>
+                </li>
               </ul>
             </div>
             <div className="col-span-1">
               <h3 className="font-bold mb-4 text-sm md:text-base">SERVICE</h3>
               <ul>
-                {/* <li className="mb-2"><a href="#" className="text-gray-300 text-sm md:text-base">Book a cab</a></li> */}
-                <li className="mb-2"><a href="/rental" className="text-gray-300 text-sm md:text-base">Rental</a></li>
-                {/* <li className="mb-2"><a href="#" className="text-gray-300 text-sm md:text-base">Occasional booking</a></li> */}
-                <li className="mb-2"><a href="/ridomoney" className="text-gray-300 text-sm md:text-base">Rido money</a></li>
+                {/* <li className="mb-2">
+                  <button 
+                    onClick={() => handleNavigation('#')}
+                    className="text-gray-300 text-sm md:text-base"
+                  >
+                    Book a cab
+                  </button>
+                </li> */}
+                <li className="mb-2">
+                  <button 
+                    onClick={() => handleNavigation('/rental')}
+                    className="text-gray-300 text-sm md:text-base"
+                  >
+                    Rental
+                  </button>
+                </li>
+                {/* <li className="mb-2">
+                  <button 
+                    onClick={() => handleNavigation('#')}
+                    className="text-gray-300 text-sm md:text-base"
+                  >
+                    Occasional booking
+                  </button>
+                </li> */}
+                <li className="mb-2">
+                  <button 
+                    onClick={() => handleNavigation('/ridomoney')}
+                    className="text-gray-300 text-sm md:text-base"
+                  >
+                    Rido money
+                  </button>
+                </li>
               </ul>
             </div>
             <div className="col-span-1">
               <h3 className="font-bold mb-4 text-sm md:text-base">COMPANY</h3>
               <ul>
-                <li className="mb-2"><a href="/about" className="text-gray-300 text-sm md:text-base">About us</a></li>
-                <li className="mb-2"><a href="/contact" className="text-gray-300 text-sm md:text-base">Contact us</a></li>
-                {/* <li className="mb-2"><a href="#" className="text-gray-300 text-sm md:text-base">Career</a></li> */}
-                {/* <li className="mb-2"><a href="/terms&conditions" className="text-gray-300 text-sm md:text-base">Terms & Conditions</a></li>
-                <li className="mb-2"><a href="/privacy-policy" className="text-gray-300 text-sm md:text-base">Privacy Policy</a></li>
-                <li className="mb-2"><a href="/cancellation-policy" className="text-gray-300 text-sm md:text-base">Cancellation & Refund Policy</a></li> */}
+                <li className="mb-2">
+                  <button 
+                    onClick={() => handleNavigation('/about')}
+                    className="text-gray-300 text-sm md:text-base"
+                  >
+                    About us
+                  </button>
+                </li>
+                <li className="mb-2">
+                  <button 
+                    onClick={() => handleNavigation('/contact')}
+                    className="text-gray-300 text-sm md:text-base"
+                  >
+                    Contact us
+                  </button>
+                </li>
+                {/* <li className="mb-2">
+                  <button 
+                    onClick={() => handleNavigation('#')}
+                    className="text-gray-300 text-sm md:text-base"
+                  >
+                    Career
+                  </button>
+                </li>
+                <li className="mb-2">
+                  <button 
+                    onClick={() => handleNavigation('/terms&conditions')}
+                    className="text-gray-300 text-sm md:text-base"
+                  >
+                    Terms & Conditions
+                  </button>
+                </li>
+                <li className="mb-2">
+                  <button 
+                    onClick={() => handleNavigation('/privacy-policy')}
+                    className="text-gray-300 text-sm md:text-base"
+                  >
+                    Privacy Policy
+                  </button>
+                </li>
+                <li className="mb-2">
+                  <button 
+                    onClick={() => handleNavigation('/cancellation-policy')}
+                    className="text-gray-300 text-sm md:text-base"
+                  >
+                    Cancellation & Refund Policy
+                  </button>
+                </li> */}
               </ul>
             </div>
             <div className="col-span-1">
               <h3 className="font-bold mb-4 text-sm md:text-base">POLICIES</h3>
               <ul>
-                <li className="mb-2"><a href="/terms&conditions" className="text-gray-300 text-sm md:text-base">Terms & Conditions</a></li>
-                <li className="mb-2"><a href="/privacy-policy" className="text-gray-300 text-sm md:text-base">Privacy Policy</a></li>
-                <li className="mb-2"><a href="/cancellation-policy" className="text-gray-300 text-sm md:text-base">Cancellation & Refund Policy</a></li>
+                <li className="mb-2">
+                  <button 
+                    onClick={() => handleNavigation('/terms&conditions')}
+                    className="text-gray-300 text-sm md:text-base"
+                  >
+                    Terms & Conditions
+                  </button>
+                </li>
+                <li className="mb-2">
+                  <button 
+                    onClick={() => handleNavigation('/privacy-policy')}
+                    className="text-gray-300 text-sm md:text-base"
+                  >
+                    Privacy Policy
+                  </button>
+                </li>
+                <li className="mb-2">
+                  <button 
+                    onClick={() => handleNavigation('/cancellation-policy')}
+                    className="text-gray-300 text-sm md:text-base"
+                  >
+                    Cancellation & Refund Policy
+                  </button>
+                </li>
               </ul>
             </div>
           </div>

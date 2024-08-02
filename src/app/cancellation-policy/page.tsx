@@ -3,7 +3,7 @@ import CloseButton from '@/components/CloseButton';
 
 const CancellationAndRefundPolicyPage = () => {
   return (
-    <section className="relative text-justify p-8 px-32 bg-gradient-to-b from-white to-green-200">
+    <section className="relative text-justify p-8 md:px-32 bg-gradient-to-b from-white to-green-200">
     <CloseButton />
     <h2 className="mt-16 mb-8 text-center text-4xl font-bold">Cancellation and Refund Policy</h2>
       <p className="text-sm text-gray-500">Last updated on Jul 31 2024</p>
