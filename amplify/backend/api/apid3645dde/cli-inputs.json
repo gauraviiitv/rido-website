@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "paths": {
+    "/api/sendEmail": {
+      "name": "/api/sendEmail",
+      "lambdaFunction": "ridowebsiteffe68d65",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    }
+  }
+}
