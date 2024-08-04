@@ -185,7 +185,7 @@ const Footer = () => {
           <div className="mt-6 mx-6 pt-2 flex flex-col">
             <Image src={logo1} height={100} width={150} alt="Rido Logo" className="h-16 mb-4" />
             <div className="flex space-x-4">
-              <a href="https://www.facebook.com/cabsrido" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.facebook.com/ridocab" target="_blank" rel="noopener noreferrer">
                 <Image src={facebookIcon} alt="Facebook" className="h-6 w-6" />
               </a>
               <a href="https://www.instagram.com/ridocabs/" target="_blank" rel="noopener noreferrer">

@@ -29,25 +29,25 @@ const Help: React.FC<HelpProps> = ({ className }) => {
           className="bg-gray-100 rounded w-48 break-words"
         >  
           <h3 className="font-bold text-lg mb-2 bg-blue-300 p-2 text-sm rounded">How can we help you? <span className='text-xs'>(Available 24X7)</span></h3>
-          <p className="mb-2 flex items-center space-x-2">
+          <p className="mb-2 px-2 flex items-center space-x-2">
             <Link href="tel:+917070703855" target="_blank" className="hover:underline text-xs flex items-center space-x-2">
               <Image src={phone} width={20} height={20} alt="Phone" />
               <span>Call Customer Care: 7070703855</span>
             </Link>
           </p>
-          <p className="mb-2 flex items-center space-x-2">
+          <p className="mb-2 px-2 flex items-center space-x-2">
             <Link href="tel:+917070703855" target="_blank" className="hover:underline text-xs flex items-center space-x-2">
               <Image src={phone} width={20} height={20} alt="Phone" />
               <span>Call Driver Executive: 7070703855</span>
             </Link>
           </p>
-          <p className="mb-2 flex items-center space-x-2">
+          <p className="mb-2 px-2 flex items-center space-x-2">
             <Link href="tel:+917070703855" target="_blank" className="hover:underline text-xs flex items-center space-x-2">
               <Image src={phone} width={20} height={20} alt="Phone" />
               <span>Technical Support: 7070703855</span>
             </Link>
           </p>
-          <p className="mb-2 flex items-center space-x-2">
+          <p className="mb-2 px-2 flex items-center space-x-2">
             <Link href="https://wa.me/917070703855?text=Hi" target="_blank" className="hover:underline text-xs flex items-center space-x-2">
               <Image src={whatsapp} width={20} height={20} alt="WhatsApp" /> 
               <span>Chat with us on WhatsApp</span>

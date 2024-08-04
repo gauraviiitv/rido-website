@@ -17,7 +17,7 @@ const HomeSection = () => (
       </p>
     </div>
     <div className="flex justify-center">
-      <Image src={welcomeImage} alt="Welcome" className='curved-bottom'/>
+      <Image src={welcomeImage} alt="Welcome" className='curved-bottom full-width'/>
     </div>
   </section>
 );

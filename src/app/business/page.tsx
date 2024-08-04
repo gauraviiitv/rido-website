@@ -55,7 +55,7 @@ const RidoBusinessPage: React.FC = () => {
       <h3 className="text-xl font-semibold mt-6">Contact us for business enquiries</h3>
       <form className="mt-4 space-y-4" onSubmit={handleSubmit}>
         <div className="flex justify-center">
-          <label className="block text-lg w-1/2">
+          <label className="block text-lg md:w-1/2">
             Full name
             <input 
               type="text" 
@@ -68,7 +68,7 @@ const RidoBusinessPage: React.FC = () => {
           </label>
         </div>
         <div className="flex justify-center">
-          <label className="block text-lg w-1/2">
+          <label className="block text-lg md:w-1/2">
             Address
             <input 
               type="text" 
@@ -81,7 +81,7 @@ const RidoBusinessPage: React.FC = () => {
           </label>
         </div>
         <div className="flex justify-center">
-          <label className="block text-lg w-1/2">
+          <label className="block text-lg md:w-1/2">
             Mobile no.
             <input 
               type="text" 
@@ -94,7 +94,7 @@ const RidoBusinessPage: React.FC = () => {
           </label>
         </div>
         <div className="flex justify-center">
-          <label className="block text-lg w-1/2">
+          <label className="block text-lg md:w-1/2">
             Email id
             <input 
               type="email" 
