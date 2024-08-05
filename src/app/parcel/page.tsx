@@ -1,8 +1,11 @@
 'use client';
 import React, { useState } from 'react';
 import CloseButton from '@/components/CloseButton';
+import { useTranslations } from 'next-intl';
 
 const RidoParcelPage: React.FC = () => {
+  const t = useTranslations('ridoParcel');
+
   const [formData, setFormData] = useState({
     fullName: '',
     address: '',
@@ -29,7 +32,7 @@ const RidoParcelPage: React.FC = () => {
     });
 
     if (response.ok) {
-      alert('Email sent successfully');
+      alert(t('emailSuccess'));
       setFormData({
         fullName: '',
         address: '',
@@ -37,29 +40,29 @@ const RidoParcelPage: React.FC = () => {
         email: ''
       });
     } else {
-      alert('Failed to send email');
+      alert(t('emailFailure'));
     }
   };
 
   return (
     <section className="relative text-justify p-8 md:px-32 bg-gradient-to-b from-white to-green-200">
       <CloseButton />
-      <h2 className="mt-16 mb-8 text-center text-4xl font-bold">Rido Parcel</h2>
+      <h2 className="mt-16 mb-8 text-center text-4xl font-bold">{t('title')}</h2>
 
       <p className="mt-4 text-lg">
-        Rido Parcel offers cab owners a seamless way to diversify their services and boost their income. Our platform is designed to facilitate easy integration, allowing you to manage both passenger bookings and parcel deliveries efficiently. By partnering with RidoParcel, you gain access to a vast network of customers who rely on timely and reliable parcel delivery services. This dual functionality ensures that your vehicle is always in demand, providing a steady flow of business opportunities throughout the day.
+        {t('intro1')}
       </p>
 
       <p className="mt-4 text-lg">
-        Joining Rido Parcel means you are part of a trusted and innovative brand committed to excellence and customer satisfaction. We offer comprehensive support, from easy onboarding to ongoing assistance, ensuring you have all the tools and resources needed to succeed. Our user-friendly app makes managing deliveries straightforward, with features like real-time tracking, route optimization, and secure payment processing.
+        {t('intro2')}
       </p>
 
-      <h3 className="mt-8 mb-4 text-center text-2xl font-bold">Contact us for business enquiries</h3>
+      <h3 className="mt-8 mb-4 text-center text-2xl font-bold">{t('contactTitle')}</h3>
 
       <form className="mt-4 space-y-4" onSubmit={handleSubmit}>
         <div className="flex justify-center">
           <label className="block text-lg md:w-1/2">
-            Full name
+            {t('fullName')}
             <input 
               type="text" 
               name="fullName" 
@@ -72,7 +75,7 @@ const RidoParcelPage: React.FC = () => {
         </div>
         <div className="flex justify-center">
           <label className="block text-lg md:w-1/2">
-            Address
+            {t('address')}
             <input 
               type="text" 
               name="address" 
@@ -85,7 +88,7 @@ const RidoParcelPage: React.FC = () => {
         </div>
         <div className="flex justify-center">
           <label className="block text-lg md:w-1/2">
-            Mobile no.
+            {t('mobile')}
             <input 
               type="text" 
               name="mobile" 
@@ -98,7 +101,7 @@ const RidoParcelPage: React.FC = () => {
         </div>
         <div className="flex justify-center">
           <label className="block text-lg md:w-1/2">
-            Email id
+            {t('email')}
             <input 
               type="email" 
               name="email" 
@@ -111,7 +114,7 @@ const RidoParcelPage: React.FC = () => {
         </div>
         <div className="flex justify-center">
           <button type="submit" className="mt-4 px-4 py-2 bg-yellow-500 text-white rounded-md">
-            Submit
+            {t('submitButton')}
           </button>
         </div>
       </form>

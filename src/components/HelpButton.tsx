@@ -1,6 +1,6 @@
 "use client"; // Add this directive at the top
 
-import React, { use, useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';

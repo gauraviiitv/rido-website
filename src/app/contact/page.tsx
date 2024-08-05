@@ -1,44 +1,56 @@
-import CloseButton from '@/components/CloseButton';
+'use client';
 import React from 'react';
+import CloseButton from '@/components/CloseButton';
+import { useTranslations } from 'next-intl';
 
-const ContactUsPage = () => {
+const ContactUsPage: React.FC = () => {
+  const t = useTranslations('contactUs');
+
   return (
     <section className="p-8 md:px-32 text-justify bg-gradient-to-b from-white to-green-200">
       <CloseButton />
-      <h2 className="mt-16 mb-8 text-center text-4xl font-bold">Contact Us</h2>
-      <h2 className="text-2xl font-bold">Get in Touch</h2>
+      <h2 className="mt-16 mb-8 text-center text-4xl font-bold">{t('title')}</h2>
+      <h2 className="text-2xl font-bold">{t('getInTouch')}</h2>
       <p className="mt-4 text-lg">
-        At Rido, we value your feedback and are here to assist you with any questions or concerns. Whether you need help with a booking, have a suggestion, or require support, our dedicated customer service team is ready to provide you with prompt and professional assistance.
+        {t('intro')}
       </p>
 
       <div className="mt-6">
-        <h3 className="text-xl font-semibold">Customer Support</h3>
-        <p>For any inquiries or assistance with bookings, please contact our customer support team.</p>
-        <p>Phone: 70-70-70-3855</p>
-        <p>Email: <a href="mailto:customers@ridocabs.com" className="text-blue-500">customers@ridocabs.com</a></p>
-      </div>
-
-      <div className="mt-6">
-        <h3 className="text-xl font-semibold">Driver Support</h3>
-        <p>If you&apos;re a driver needing assistance or interested in joining our team, our driver support team is here to help.</p>
-        <p>Phone: 70-70-70-3855</p>
-        <p>Email: <a href="mailto:drivers@ridocabs.com" className="text-blue-500">drivers@ridocabs.com</a></p>
-      </div>
-
-      <div className="mt-6">
-        <h3 className="text-xl font-semibold">Feedback and Suggestions</h3>
-        <p>We love hearing from our customers. If you have any feedback or suggestions on how we can improve our services, please let us know.</p>
-        <p>Email: <a href="mailto:feedback@ridocabs.com" className="text-blue-500">feedback@ridocabs.com</a></p>
-      </div>
-
-      <div className="mt-6">
-        <h3 className="text-xl font-semibold">Our Location</h3>
+        <h3 className="text-xl font-semibold">{t('customerSupport')}</h3>
+        <p>{t('customerSupportDetails1')}</p>
+        <p>{t('customerSupportPhone')}</p>
         <p>
-          Head Office:<br />
-          Patuaha, Saharsa, Near Maruti Suzuki Showroom, Patuaha, Saharsa, Bihar 852202
+          {t('customerSupportEmail')} <a href="mailto:customers@ridocabs.com" className="text-blue-500">customers@ridocabs.com</a>
         </p>
-        <p>Phone: 70-70-70-3855</p>
-        <p>Email: <a href="mailto:support@ridocabs.com" className="text-blue-500">support@ridocabs.com</a></p>
+      </div>
+
+      <div className="mt-6">
+        <h3 className="text-xl font-semibold">{t('driverSupport')}</h3>
+        <p>{t('driverSupportDetails')}</p>
+        <p>{t('driverSupportPhone')}</p>
+        <p>
+          {t('driverSupportEmail')} <a href="mailto:drivers@ridocabs.com" className="text-blue-500">drivers@ridocabs.com</a>
+        </p>
+      </div>
+
+      <div className="mt-6">
+        <h3 className="text-xl font-semibold">{t('feedbackSuggestions')}</h3>
+        <p>{t('feedbackSuggestionsDetails')}</p>
+        <p>
+          {t('feedbackSuggestionsEmail')} <a href="mailto:feedback@ridocabs.com" className="text-blue-500">feedback@ridocabs.com</a>
+        </p>
+      </div>
+
+      <div className="mt-6">
+        <h3 className="text-xl font-semibold">{t('ourLocation')}</h3>
+        <p>
+          {t('headOffice')}<br />
+          {t('address')}
+        </p>
+        <p>{t('locationPhone')}</p>
+        <p>
+          {t('locationEmail')} <a href="mailto:support@ridocabs.com" className="text-blue-500">support@ridocabs.com</a>
+        </p>
       </div>
     </section>
   );

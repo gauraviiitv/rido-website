@@ -3,6 +3,7 @@ import WhyChooseUs from '../components/WhyChooseUs';
 import RidoForEveryone from '../components/RidoForEveryone';
 import FAQ from '../components/FAQ';
 
+
 const Home: React.FC = () => {
   return (
     <div>

@@ -4,34 +4,37 @@ import tickIcon from '../assets/tick.png';
 import rupeeIcon from '../assets/rupee.png';
 import handIcon from '../assets/hand-raised.png';
 import carIcon from '../assets/car1.png';
+import { useTranslations } from 'next-intl';
 
 const WhyChooseUs = () => {
+  const t = useTranslations('whyChooseUs');
+
   const features = [
     {
-      icon: <Image src={tickIcon} alt="Safety First" className="h-12 w-12" />,
-      title: 'Safety First',
-      description: 'Expert drivers, Regular vehicle maintenance and hygiene standards.',
+      icon: <Image src={tickIcon} alt={t('safetyFirstAlt')} className="h-12 w-12" />,
+      title: t('safetyFirstTitle'),
+      description: t('safetyFirstDescription'),
     },
     {
-      icon: <Image src={rupeeIcon} alt="Transparent Pricing" className="h-12 w-12" />,
-      title: 'Transparent Pricing',
-      description: 'Competitive and transparent pricing with no hidden charges.',
+      icon: <Image src={rupeeIcon} alt={t('transparentPricingAlt')} className="h-12 w-12" />,
+      title: t('transparentPricingTitle'),
+      description: t('transparentPricingDescription'),
     },
     {
-      icon: <Image src={handIcon} alt="Reliable Service" className="h-12 w-12" />,
-      title: 'Reliable Service',
-      description: 'We offer 24/7 service, so you can book a ride anytime, anywhere.',
+      icon: <Image src={handIcon} alt={t('reliableServiceAlt')} className="h-12 w-12" />,
+      title: t('reliableServiceTitle'),
+      description: t('reliableServiceDescription'),
     },
     {
-      icon: <Image src={carIcon} alt="Variety of Options" className="h-12 w-12" />,
-      title: 'Variety of Options',
-      description: 'We have a range of vehicles to suit your needs.',
+      icon: <Image src={carIcon} alt={t('varietyOfOptionsAlt')} className="h-12 w-12" />,
+      title: t('varietyOfOptionsTitle'),
+      description: t('varietyOfOptionsDescription'),
     },
   ];
 
   return (
     <div className="p-8">
-      <h2 className="text-2xl font-bold mb-4 text-white">Why Choose Us?</h2>
+      <h2 className="text-2xl font-bold mb-4 text-white">{t('title')}</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {features.map((feature) => (
           <div key={feature.title} className="bg-white p-4 rounded-2xl shadow-md flex items-center justify-center aspect-w-1 aspect-h-1">

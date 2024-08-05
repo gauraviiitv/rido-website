@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import {NextIntlClientProvider} from 'next-intl';
+import {getLocale, getMessages} from 'next-intl/server';
 import "./globals.css";
 import Navbar from "../components/NavBar";
 import Footer from "../components/Footer";
@@ -12,21 +14,29 @@ export const metadata: Metadata = {
   description: "Developed by Gaurav Prakash",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+export default async function RootLayout({
+  children
+}: {
   children: React.ReactNode;
-}>) {
+}) {
+  const locale = await getLocale();
+ 
+  // Providing all messages to the client
+  // side is the easiest way to get started
+  const messages = await getMessages();
+ 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={inter.className}>
+      <NextIntlClientProvider messages={messages}>
           <Navbar />
           <div>{children}</div>
           <Footer/>
           <Help />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

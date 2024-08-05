@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { UserIcon, Bars3Icon } from '@heroicons/react/24/solid';
+import {useTranslations} from 'next-intl';
+import { setCookie } from 'cookies-next'; // Use the cookies-next library or similar
 import logo from '../assets/logo.png'; // Adjust the path based on your project structure
 import indFlag from '../assets/in.png'; // Example path to flag images
 
@@ -20,15 +22,18 @@ const Navbar: React.FC = () => {
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
   const [isMenuDropdownOpen, setIsMenuDropdownOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState<{ code: string, name: string, flag?: FlagImage }>({
-    code: 'EN',
-    name: 'English',
-  }); // Default language
+    code: 'IN', // Set default locale to Hindi
+    name: 'हिंदी',
+    flag: indFlag
+  });
 
   const languages = [
     { code: 'EN', name: 'English' },
     { code: 'IN', name: 'हिंदी', flag: indFlag },
-    { code: 'NP', name: 'मैथिली', flag: indFlag }
+    // { code: 'NP', name: 'मैथिली', flag: indFlag }
   ];
+
+  const t = useTranslations('navbar');
 
   const handleClick = () => {
     router.push('/'); // Navigate to home
@@ -47,6 +52,12 @@ const Navbar: React.FC = () => {
   const handleLanguageChange = (language: { code: string, name: string, flag?: FlagImage }) => {
     setSelectedLanguage(language);
     setIsLanguageDropdownOpen(false); // Close the dropdown after selection
+
+    // Set a cookie for the selected language
+    setCookie('locale', language.code);
+
+    // Optionally refresh the page
+    router.refresh(); // Reloads the current page, useful for dynamic content updates
   };
 
   const handleNavigation = (path: string) => {
@@ -58,7 +69,7 @@ const Navbar: React.FC = () => {
     <nav className="fixed w-full gradient-container p-2 flex justify-between items-center z-50">
       <div className="flex items-center space-x-4">
         <button onClick={handleClick} className="focus:outline-none">
-          <Image src={logo} alt="Logo" width={100} height={100} /> {/* Logo Image */}
+          <Image src={logo} alt={t('logo')} width={100} height={100} /> {/* Logo Image */}
         </button>
       </div>
       <div className="flex items-center space-x-4">
@@ -101,10 +112,10 @@ const Navbar: React.FC = () => {
           {isMenuDropdownOpen && (
             <div className="absolute right-0 mt-2 w-36 bg-white border border-gray-200 rounded-lg shadow-lg">
                {/* <button onClick={() => handleNavigation('/book-a-ride')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full rounded-lg">Book a ride</button> */}
-              <button onClick={() => handleNavigation('/driver')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">Drive with us</button> {/* Navigate to Drive with us */}
-              <button onClick={() => handleNavigation('/rental')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">Rido rental</button> {/* Navigate to Rido rental */}
-              <button onClick={() => handleNavigation('/ridomoney')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">Rido money</button> {/* Navigate to Rido money */}
-              <button onClick={() => handleNavigation('/business')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">Rido business</button> {/* Navigate to Rido business */}
+               <button onClick={() => handleNavigation('/driver')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">{t('driveWithUs')}</button>
+              <button onClick={() => handleNavigation('/rental')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">{t('ridoRental')}</button>
+              <button onClick={() => handleNavigation('/ridomoney')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">{t('ridoMoney')}</button>
+              <button onClick={() => handleNavigation('/business')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">{t('ridoBusiness')}</button>
                {/* <button onClick={() => handleNavigation('/customer-support')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">Customer support</button> */}
             </div>
           )}
