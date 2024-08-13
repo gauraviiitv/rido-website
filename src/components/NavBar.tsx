@@ -163,10 +163,10 @@ const Navbar: React.FC = () => {
           </button>
           {isMenuDropdownOpen && (
             <div className="absolute right-0 mt-2 w-36 bg-white border border-gray-200 rounded-lg shadow-lg">
-              <button onClick={() => handleNavigation('/driver')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">{t('driveWithUs')}</button>
-              <button onClick={() => handleNavigation('/rental')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">{t('ridoRental')}</button>
-              <button onClick={() => handleNavigation('/ridomoney')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">{t('ridoMoney')}</button>
-              <button onClick={() => handleNavigation('/business')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">{t('ridoBusiness')}</button>
+              <button onClick={() => handleNavigation('/pages/driver')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">{t('driveWithUs')}</button>
+              <button onClick={() => handleNavigation('/pages/rental')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">{t('ridoRental')}</button>
+              <button onClick={() => handleNavigation('/pages/ridomoney')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">{t('ridoMoney')}</button>
+              <button onClick={() => handleNavigation('/pages/business')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">{t('ridoBusiness')}</button>
             </div>
           )}
         </div>

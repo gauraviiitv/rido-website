@@ -30,7 +30,7 @@ const Footer = () => {
               <ul>
                 <li className="mb-2">
                   <button 
-                    onClick={() => handleNavigation('/driver')}
+                    onClick={() => handleNavigation('/pages/driver')}
                     className="text-gray-300 text-sm md:text-base"
                   >
                     {t('ridoDriver')}
@@ -38,7 +38,7 @@ const Footer = () => {
                 </li>
                 <li className="mb-2">
                   <button 
-                    onClick={() => handleNavigation('/business')}
+                    onClick={() => handleNavigation('/pages/business')}
                     className="text-gray-300 text-sm md:text-base"
                   >
                     {t('ridoBusiness')}
@@ -54,7 +54,7 @@ const Footer = () => {
                 </li> */}
                 <li className="mb-2">
                   <button 
-                    onClick={() => handleNavigation('/parcel')}
+                    onClick={() => handleNavigation('/pages/parcel')}
                     className="text-gray-300 text-sm md:text-base"
                   >
                     {t('ridoParcel')}
@@ -75,7 +75,7 @@ const Footer = () => {
                 </li> */}
                 <li className="mb-2">
                   <button 
-                    onClick={() => handleNavigation('/rental')}
+                    onClick={() => handleNavigation('/pages/rental')}
                     className="text-gray-300 text-sm md:text-base"
                   >
                     {t('rental')}
@@ -91,7 +91,7 @@ const Footer = () => {
                 </li> */}
                 <li className="mb-2">
                   <button 
-                    onClick={() => handleNavigation('/ridomoney')}
+                    onClick={() => handleNavigation('/pages/ridomoney')}
                     className="text-gray-300 text-sm md:text-base"
                   >
                     {t('ridoMoney')}
@@ -104,7 +104,7 @@ const Footer = () => {
               <ul>
                 <li className="mb-2">
                   <button 
-                    onClick={() => handleNavigation('/about')}
+                    onClick={() => handleNavigation('/pages/about')}
                     className="text-gray-300 text-sm md:text-base"
                   >
                     {t('aboutUs')}
@@ -112,7 +112,7 @@ const Footer = () => {
                 </li>
                 <li className="mb-2">
                   <button 
-                    onClick={() => handleNavigation('/contact')}
+                    onClick={() => handleNavigation('/pages/contact')}
                     className="text-gray-300 text-sm md:text-base"
                   >
                     {t('contactUs')}
