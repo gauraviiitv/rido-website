@@ -2,11 +2,16 @@
 import React from 'react';
 import CloseButton from '@/components/CloseButton';
 import { useTranslations } from 'next-intl';
+import Navbar from '@/components/NavBar';
+import Footer from '@/components/Footer';
+
 
 const RidoDriverPage: React.FC = () => {
   const t = useTranslations('ridoDriver');
 
   return (
+    <div>
+    <Navbar />
     <section className="relative text-justify p-8 md:px-32 bg-gradient-to-b from-white to-green-200">
       <CloseButton />
       <h2 className="mt-16 mb-8 text-center text-4xl font-bold">{t('title')}</h2>
@@ -52,6 +57,8 @@ const RidoDriverPage: React.FC = () => {
         {t('communityAndSupport.details2')}
       </p>
     </section>
+    <Footer />
+    </div>
   );
 };
 

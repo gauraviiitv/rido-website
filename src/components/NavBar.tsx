@@ -1,11 +1,13 @@
-"use client"; // Add this directive at the top
+"use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { UserIcon, Bars3Icon } from '@heroicons/react/24/solid';
-import {useTranslations} from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { setCookie } from 'cookies-next'; // Use the cookies-next library or similar
+import { CognitoUserSession } from 'amazon-cognito-identity-js';
+import { userPool } from '../cognito';
 import logo from '../assets/logo.png'; // Adjust the path based on your project structure
 import indFlag from '../assets/in.png'; // Example path to flag images
 
@@ -26,6 +28,7 @@ const Navbar: React.FC = () => {
     name: 'हिंदी',
     flag: indFlag
   });
+  const [userName, setUserName] = useState<string | null>(null);
 
   const languages = [
     { code: 'EN', name: 'English' },
@@ -34,6 +37,28 @@ const Navbar: React.FC = () => {
   ];
 
   const t = useTranslations('navbar');
+
+  useEffect(() => {
+    const currentUser = userPool.getCurrentUser();
+    if (currentUser) {
+      currentUser.getSession((err: any, session: CognitoUserSession | null) => {
+        if (err) {
+          console.error('Error getting session:', err);
+          return;
+        }
+        if (session?.isValid()) {
+          currentUser.getUserAttributes((err: any, attributes: any) => {
+            if (err) {
+              console.error('Error getting attributes:', err);
+              return;
+            }
+            const nameAttr = attributes.find((attr: any) => attr.Name === 'name');
+            setUserName(nameAttr?.Value || 'User');
+          });
+        }
+      });
+    }
+  }, []);
 
   const handleClick = () => {
     router.push('/'); // Navigate to home
@@ -63,6 +88,15 @@ const Navbar: React.FC = () => {
   const handleNavigation = (path: string) => {
     router.push(path); // Navigate to the selected path
     setIsMenuDropdownOpen(false); // Close the dropdown after navigation
+  };
+
+  const handleLogout = () => {
+    const currentUser = userPool.getCurrentUser();
+    if (currentUser) {
+      currentUser.signOut();
+      setUserName(null);
+      router.refresh(); // Redirect to login page after logout
+    }
   };
 
   return (
@@ -100,23 +134,39 @@ const Navbar: React.FC = () => {
             </div>
           )}
         </div>
-        {/* Uncomment this block if you want to add a login button
-        <button className="bg-white text-black flex items-center px-2 rounded-full">
-          <UserIcon className="h-4 w-4 text-black" />
-          <span>Log In</span>
-        </button> */}
+        {userName ? (
+  <div className="flex items-center">
+    <button className="bg-white text-black flex items-center px-2 rounded-full">
+      <UserIcon className="h-4 w-4 text-black" />
+      <span className="ml-2">{userName}</span>
+    </button>
+    <button 
+      onClick={handleLogout} 
+      className="bg-white text-black flex items-center px-2 rounded-full ml-4"
+    >
+      Log Out
+    </button>
+  </div>
+) : (
+  <button 
+    onClick={() => router.push('/auth/login')} // Navigate to login page
+    className="bg-white text-black flex items-center px-2 rounded-full"
+  >
+    <UserIcon className="h-4 w-4 text-black" />
+    <span className="ml-2">Log In</span>
+  </button>
+)}
+
         <div className="relative">
           <button onClick={toggleMenuDropdown} className="focus:outline-none">
             <Bars3Icon className=" mt-2 h-8 w-8 text-black" /> {/* Menu Icon */}
           </button>
           {isMenuDropdownOpen && (
             <div className="absolute right-0 mt-2 w-36 bg-white border border-gray-200 rounded-lg shadow-lg">
-               {/* <button onClick={() => handleNavigation('/book-a-ride')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full rounded-lg">Book a ride</button> */}
-               <button onClick={() => handleNavigation('/driver')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">{t('driveWithUs')}</button>
+              <button onClick={() => handleNavigation('/driver')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">{t('driveWithUs')}</button>
               <button onClick={() => handleNavigation('/rental')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">{t('ridoRental')}</button>
               <button onClick={() => handleNavigation('/ridomoney')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">{t('ridoMoney')}</button>
               <button onClick={() => handleNavigation('/business')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">{t('ridoBusiness')}</button>
-               {/* <button onClick={() => handleNavigation('/customer-support')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">Customer support</button> */}
             </div>
           )}
         </div>

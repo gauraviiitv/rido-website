@@ -3,11 +3,16 @@
 import React from 'react';
 import CloseButton from '@/components/CloseButton';
 import { useTranslations } from 'next-intl';
+import Navbar from '@/components/NavBar';
+import Footer from '@/components/Footer';
+
 
 const AboutUsPage = () => {
   const t = useTranslations('aboutUs');
 
   return (
+    <div>
+    <Navbar />
     <section className="relative text-justify p-8 md:px-32 bg-gradient-to-b from-white to-green-200">
       <CloseButton />
       <h2 className="mt-16 mb-8 text-center text-4xl font-bold">{t('aboutUs')}</h2>
@@ -36,6 +41,8 @@ const AboutUsPage = () => {
         {t('ourCommitmentText')}
       </p>
     </section>
+    <Footer />
+    </div>
   );
 };
 

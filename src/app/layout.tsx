@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import {NextIntlClientProvider} from 'next-intl';
 import {getLocale, getMessages} from 'next-intl/server';
 import "./globals.css";
-import Navbar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Help from '../components/HelpButton';
 
@@ -32,9 +31,7 @@ export default async function RootLayout({
       </head>
       <body className={inter.className}>
       <NextIntlClientProvider messages={messages}>
-          <Navbar />
           <div>{children}</div>
-          <Footer/>
           <Help />
         </NextIntlClientProvider>
       </body>
