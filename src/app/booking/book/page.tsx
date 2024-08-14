@@ -157,7 +157,10 @@ const BookingPage = () => {
                       onPlaceChanged={() => {
                         const place = destinationRef.current?.getPlace();
                         if (place?.formatted_address) {
-                          setFormData((prevData) => ({ ...prevData, destination: place.formatted_address }));
+                          setFormData((prevData) => ({
+                            ...prevData,
+                            destination: place.formatted_address || '', // Fallback value to ensure `source` is always a string
+                          }));
                         }
                       }}
                     >
