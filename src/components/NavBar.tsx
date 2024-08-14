@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { UserIcon, Bars3Icon } from '@heroicons/react/24/solid';
 import { useTranslations } from 'next-intl';
 import { setCookie } from 'cookies-next'; // Use the cookies-next library or similar
-import { CognitoUserSession } from 'amazon-cognito-identity-js';
+import { CognitoUser, CognitoUserSession } from 'amazon-cognito-identity-js';
 import { userPool } from '../cognito';
 import logo from '../assets/logo.png'; // Adjust the path based on your project structure
 import indFlag from '../assets/in.png'; // Example path to flag images
@@ -55,8 +55,12 @@ const Navbar: React.FC = () => {
             const nameAttr = attributes.find((attr: any) => attr.Name === 'name');
             setUserName(nameAttr?.Value || 'User');
           });
+        } else {
+          setUserName(null); // Clear userName if session is not valid
         }
       });
+    } else {
+      setUserName(null); // Clear userName if no current user
     }
   }, []);
 
@@ -135,27 +139,27 @@ const Navbar: React.FC = () => {
           )}
         </div>
         {userName ? (
-  <div className="flex items-center">
-    <button className="bg-white text-black flex items-center px-2 rounded-full">
-      <UserIcon className="h-4 w-4 text-black" />
-      <span className="ml-2">{userName}</span>
-    </button>
-    <button 
-      onClick={handleLogout} 
-      className="bg-white text-black flex items-center px-2 rounded-full ml-4"
-    >
-      Log Out
-    </button>
-  </div>
-) : (
-  <button 
-    onClick={() => router.push('/auth/login')} // Navigate to login page
-    className="bg-white text-black flex items-center px-2 rounded-full"
-  >
-    <UserIcon className="h-4 w-4 text-black" />
-    <span className="ml-2">Log In</span>
-  </button>
-)}
+          <div className="flex items-center">
+            <button className="bg-white text-black flex items-center px-2 rounded-full">
+              <UserIcon className="h-4 w-4 text-black" />
+              <span className="ml-2">{userName}</span>
+            </button>
+            <button 
+              onClick={handleLogout} 
+              className="bg-white text-black flex items-center px-2 rounded-full ml-4"
+            >
+              Log Out
+            </button>
+          </div>
+        ) : (
+          <button 
+            onClick={() => router.push('/auth/login')} // Navigate to login page
+            className="bg-white text-black flex items-center px-2 rounded-full"
+          >
+            <UserIcon className="h-4 w-4 text-black" />
+            <span className="ml-2">Log In</span>
+          </button>
+        )}
 
         <div className="relative">
           <button onClick={toggleMenuDropdown} className="focus:outline-none">
@@ -163,6 +167,7 @@ const Navbar: React.FC = () => {
           </button>
           {isMenuDropdownOpen && (
             <div className="absolute right-0 mt-2 w-36 bg-white border border-gray-200 rounded-lg shadow-lg">
+              <button onClick={() => handleNavigation('/booking/book')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">{t('bookWithUs')}</button>
               <button onClick={() => handleNavigation('/pages/driver')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">{t('driveWithUs')}</button>
               <button onClick={() => handleNavigation('/pages/rental')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">{t('ridoRental')}</button>
               <button onClick={() => handleNavigation('/pages/ridomoney')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">{t('ridoMoney')}</button>

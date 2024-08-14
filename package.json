@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.1.5",
+    "@react-google-maps/api": "^2.19.3",
     "amazon-cognito-identity-js": "^6.3.12",
     "cookies-next": "^4.2.1",
     "framer-motion": "^11.3.8",

@@ -1,16 +1,28 @@
 "use client";
 
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { AuthenticationDetails, CognitoUser } from 'amazon-cognito-identity-js';
+import React, { useState, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { AuthenticationDetails, CognitoUser, CognitoUserSession } from 'amazon-cognito-identity-js';
 import { userPool } from '../../../cognito';
 import CloseButton from '@/components/CloseButton';
 
 const LoginPage = () => {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [emailOrPhone, setEmailOrPhone] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const currentUser = userPool.getCurrentUser();
+    if (currentUser) {
+      currentUser.getSession((err: any, session: CognitoUserSession | null) => {
+        if (session?.isValid()) {
+          router.push('/'); // Redirect to homepage if already logged in
+        }
+      });
+    }
+  }, [router]);
 
   const handleSignIn = (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,7 +40,8 @@ const LoginPage = () => {
     user.authenticateUser(authenticationDetails, {
       onSuccess: (result) => {
         console.log('Login success:', result);
-        router.push('/'); // Redirect to homepage after successful login
+        const returnTo = searchParams.get('returnTo') || '/'; // Default to homepage if returnTo is not available
+        router.push(returnTo); // Redirect to the page user came from
       },
       onFailure: (err) => {
         console.error('Login error:', err);

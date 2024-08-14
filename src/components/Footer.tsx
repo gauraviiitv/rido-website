@@ -128,7 +128,7 @@ const Footer = () => {
                 </li>
                 <li className="mb-2">
                   <button 
-                    onClick={() => handleNavigation('/terms&conditions')}
+                    onClick={() => handleNavigation('/pages/terms&conditions')}
                     className="text-gray-300 text-sm md:text-base"
                   >
                     {t('termsAndConditions')}
@@ -136,7 +136,7 @@ const Footer = () => {
                 </li>
                 <li className="mb-2">
                   <button 
-                    onClick={() => handleNavigation('/privacy-policy')}
+                    onClick={() => handleNavigation('/pages/privacy-policy')}
                     className="text-gray-300 text-sm md:text-base"
                   >
                     {t('privacyPolicy')}
@@ -144,7 +144,7 @@ const Footer = () => {
                 </li>
                 <li className="mb-2">
                   <button 
-                    onClick={() => handleNavigation('/cancellation-policy')}
+                    onClick={() => handleNavigation('/pages/cancellation-policy')}
                     className="text-gray-300 text-sm md:text-base"
                   >
                     {t('cancellationPolicy')}
@@ -157,7 +157,7 @@ const Footer = () => {
               <ul>
                 <li className="mb-2">
                   <button 
-                    onClick={() => handleNavigation('/terms&conditions')}
+                    onClick={() => handleNavigation('/pages/terms&conditions')}
                     className="text-gray-300 text-sm md:text-base"
                   >
                     {t('termsAndConditions')}
@@ -165,7 +165,7 @@ const Footer = () => {
                 </li>
                 <li className="mb-2">
                   <button 
-                    onClick={() => handleNavigation('/privacy-policy')}
+                    onClick={() => handleNavigation('/pages/privacy-policy')}
                     className="text-gray-300 text-sm md:text-base"
                   >
                     {t('privacyPolicy')}
@@ -173,7 +173,7 @@ const Footer = () => {
                 </li>
                 <li className="mb-2">
                   <button 
-                    onClick={() => handleNavigation('/cancellation-policy')}
+                    onClick={() => handleNavigation('/pages/cancellation-policy')}
                     className="text-gray-300 text-sm md:text-base"
                   >
                     {t('cancellationPolicy')}
