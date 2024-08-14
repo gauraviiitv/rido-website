@@ -1,19 +1,17 @@
 "use client";
-// BookingPage.tsx
+
 import React, { useState, useEffect, useRef } from 'react';
-import { useRouter } from 'next/navigation'; // Keep this import
+import { useRouter } from 'next/navigation';
 import { CognitoUserSession } from 'amazon-cognito-identity-js';
-import { userPool } from '../../../cognito'; // Adjust path if necessary
+import { userPool } from '../../../cognito';
 import CloseButton from '@/components/CloseButton';
 import Footer from '@/components/Footer';
-import { Autocomplete, LoadScript } from '@react-google-maps/api';
+import { Autocomplete, LoadScriptNext } from '@react-google-maps/api';
 
-// Constants
-const GOOGLE_MAPS_API_KEY = 'AIzaSyBY4d3nTNA11x-Ek3H4qlhFKX_GCfjd67o'; // Replace with your Google Maps API key
+const GOOGLE_MAPS_API_KEY = 'AIzaSyBY4d3nTNA11x-Ek3H4qlhFKX_GCfjd67o';
 
 const BookingPage = () => {
-  const router = useRouter(); // Keep this
-  const [isLoading, setIsLoading] = useState(true);
+  const router = useRouter();
   const [formData, setFormData] = useState({
     source: '',
     destination: '',
@@ -28,7 +26,6 @@ const BookingPage = () => {
   const [isConfirmed, setIsConfirmed] = useState(false);
   const [initialData, setInitialData] = useState({ source: '', destination: '' });
 
-  // Refs for Autocomplete
   const sourceRef = useRef<google.maps.places.Autocomplete>(null);
   const destinationRef = useRef<google.maps.places.Autocomplete>(null);
 
@@ -37,7 +34,6 @@ const BookingPage = () => {
     if (currentUser) {
       currentUser.getSession((err: any, session: CognitoUserSession | null) => {
         if (err || !session?.isValid()) {
-          // Redirect to login with returnTo query parameter
           router.push(`/auth/login?returnTo=${encodeURIComponent(window.location.pathname)}`);
         } else {
           const userAttributes = session.getIdToken().payload;
@@ -46,11 +42,9 @@ const BookingPage = () => {
             email: userAttributes?.email || '',
             mobile: userAttributes?.phone_number || '',
           });
-          setIsLoading(false); // User is authenticated
         }
       });
     } else {
-      // Redirect to login with returnTo query parameter
       router.push(`/auth/login?returnTo=${encodeURIComponent(window.location.pathname)}`);
     }
   }, [router]);
@@ -59,7 +53,6 @@ const BookingPage = () => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
     if (isConfirmed) {
-      // Recalculate fare if data changes after confirmation
       updateFare();
     }
   };
@@ -73,47 +66,37 @@ const BookingPage = () => {
       return;
     }
 
-    // Save initial data for comparison
     setInitialData({ source, destination });
-
-    // Display a random estimated fare
     updateFare();
-    setIsConfirmed(false); // Reset confirmation status
+    setIsConfirmed(false);
     setError(null);
   };
 
   const updateFare = () => {
-    // Display a random estimated fare
-    const Fare = Math.floor(Math.random() * 100) + 200; // Random fare between $10 and $60
+    const Fare = Math.floor(Math.random() * 100) + 200;
     setEstimatedFare(Fare);
   };
 
   const handleConfirm = () => {
-    // Check if there is a change in source or destination
     if (formData.source !== initialData.source || formData.destination !== initialData.destination) {
       updateFare();
     }
     setIsConfirmed(true);
-  
-    // Store data in local storage
-    localStorage.setItem('bookingData', JSON.stringify({
+
+    sessionStorage.setItem('bookingData', JSON.stringify({
       ...formData,
       fare: estimatedFare,
       name: userSessionData.fullName,
       email: userSessionData.email,
       phone: userSessionData.mobile,
     }));
-  
-    // Navigate to confirmation page
+
     router.push('/booking/confirmation');
   };
-  
-  if (isLoading) {
-    return <div>Loading...</div>; // Optional loading state
-  }
 
   return (
-    <LoadScript googleMapsApiKey={GOOGLE_MAPS_API_KEY} libraries={['places']}>
+    <>
+      <LoadScriptNext googleMapsApiKey={GOOGLE_MAPS_API_KEY} libraries={['places']} />
       <div>
         <section className="relative text-justify p-8 md:px-32 gradient-up">
           <CloseButton />
@@ -132,47 +115,51 @@ const BookingPage = () => {
             <div className="flex justify-center">
               <label className="block text-lg md:w-1/2">
                 Source
-                <Autocomplete
-                  onLoad={(autocomplete) => (sourceRef.current = autocomplete)}
-                  onPlaceChanged={() => {
-                    const place = sourceRef.current?.getPlace();
-                    if (place?.formatted_address) {
-                      setFormData((prevData) => ({ ...prevData, source: place.formatted_address }));
-                    }
-                  }}
-                >
-                  <input
-                    type="text"
-                    name="source"
-                    value={formData.source}
-                    onChange={handleChange}
-                    className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                    required
-                  />
-                </Autocomplete>
+                {typeof window !== 'undefined' && window.google && (
+                  <Autocomplete
+                    onLoad={(autocomplete) => (sourceRef.current = autocomplete)}
+                    onPlaceChanged={() => {
+                      const place = sourceRef.current?.getPlace();
+                      if (place?.formatted_address) {
+                        setFormData((prevData) => ({ ...prevData, source: place.formatted_address }));
+                      }
+                    }}
+                  >
+                    <input
+                      type="text"
+                      name="source"
+                      value={formData.source}
+                      onChange={handleChange}
+                      className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                      required
+                    />
+                  </Autocomplete>
+                )}
               </label>
             </div>
             <div className="flex justify-center">
               <label className="block text-lg md:w-1/2">
                 Destination
-                <Autocomplete
-                  onLoad={(autocomplete) => (destinationRef.current = autocomplete)}
-                  onPlaceChanged={() => {
-                    const place = destinationRef.current?.getPlace();
-                    if (place?.formatted_address) {
-                      setFormData((prevData) => ({ ...prevData, destination: place.formatted_address }));
-                    }
-                  }}
-                >
-                  <input
-                    type="text"
-                    name="destination"
-                    value={formData.destination}
-                    onChange={handleChange}
-                    className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                    required
-                  />
-                </Autocomplete>
+                {typeof window !== 'undefined' && window.google && (
+                  <Autocomplete
+                    onLoad={(autocomplete) => (destinationRef.current = autocomplete)}
+                    onPlaceChanged={() => {
+                      const place = destinationRef.current?.getPlace();
+                      if (place?.formatted_address) {
+                        setFormData((prevData) => ({ ...prevData, destination: place.formatted_address }));
+                      }
+                    }}
+                  >
+                    <input
+                      type="text"
+                      name="destination"
+                      value={formData.destination}
+                      onChange={handleChange}
+                      className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                      required
+                    />
+                  </Autocomplete>
+                )}
               </label>
             </div>
             <div className="flex justify-center space-x-4">
@@ -191,7 +178,7 @@ const BookingPage = () => {
         </section>
         <Footer />
       </div>
-    </LoadScript>
+    </>
   );
 };
 
