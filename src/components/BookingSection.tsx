@@ -89,7 +89,14 @@ export default function BookingSection() {
 
       {/* Car and Character Image */}
       <div className="relative z-10 mt-8">
-        <Image src={booking} alt="Booking Image" className="curved-bottom full-width" />
+      <Image
+  src={booking.src}
+  alt="Booking Image"
+  className="curved-bottom full-width"
+  layout="responsive" // or "intrinsic" depending on your use case
+  width={500} // Set appropriate width
+  height={300} // Set appropriate height
+/>
       </div>
     </section>
   );
