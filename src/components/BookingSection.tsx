@@ -50,13 +50,13 @@ export default function BookingSection() {
         {/* Content layer */}
         <div className="relative z-20">
           {/* Heading */}
-          <h1 className="text-4xl font-bold text-gray-900 text-center">
+          <h1 className="md:text-4xl text-xl font-bold text-gray-900 text-center">
             Across all the cities in Bihar now
           </h1>
 
           {/* Input fields with Google Maps Autocomplete */}
           <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? ''} libraries={['places']} id="script-loader">
-            <div className="flex justify-center bg-navy space-x-4 py-3 my-3 margin-100">
+            <div className="flex flex-col md:flex-row justify-center bg-navy space-y-4 md:space-y-0 md:space-x-4 py-3 my-3 md:margin-100">
               <Autocomplete
                 onLoad={(autocomplete) => (currentLocationRef.current = autocomplete)}
                 onPlaceChanged={() => handlePlaceChanged(currentLocationRef, setCurrentLocation)}
@@ -79,7 +79,7 @@ export default function BookingSection() {
                 />
               </Autocomplete>
 
-              <button className="bg-yellow-500 text-black font-bold py-2 px-6" onClick={handleSearch}>
+              <button className="bg-yellow-500 text-black font-bold py-2 px-6 w-full md:w-auto" onClick={handleSearch}>
                 Search Rido Vehicle
               </button>
             </div>
@@ -89,14 +89,14 @@ export default function BookingSection() {
 
       {/* Car and Character Image */}
       <div className="relative z-10 mt-8">
-      <Image
-  src={booking.src}
-  alt="Booking Image"
-  className="curved-bottom full-width"
-  layout="responsive" // or "intrinsic" depending on your use case
-  width={500} // Set appropriate width
-  height={300} // Set appropriate height
-/>
+        <Image
+          src={booking.src}
+          alt="Booking Image"
+          className="curved-bottom full-width"
+          layout="responsive"
+          width={500}
+          height={300}
+        />
       </div>
     </section>
   );
