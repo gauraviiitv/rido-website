@@ -56,3 +56,8 @@ html {
 .bg-green1 {
   background: rgb(30, 153, 150);
 }
+
+.margin-100 {
+  margin-left : 225px;
+  margin-right : 225px;
+}

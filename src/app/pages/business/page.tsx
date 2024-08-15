@@ -26,7 +26,7 @@ const RidoBusinessPage: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const response = await fetch('https://gbby8996ja.execute-api.ap-south-1.amazonaws.com/test', {
+    const response = await fetch('https://7hibmzq8ti.execute-api.ap-south-1.amazonaws.com/test/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

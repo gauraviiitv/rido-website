@@ -1,7 +1,6 @@
 import React from 'react';
 import './HomeSection.css'; // Make sure to import the CSS file
-import Image from 'next/image';
-import welcomeImage from '@/assets/Welcome.png';
+
 import {useTranslations} from 'next-intl';
 
 
@@ -9,7 +8,7 @@ const HomeSection = () => {
   const t = useTranslations('homeSection');
 
   return (
-    <section className="md:pt-20 pt-16 curved-bottom gradient-background">
+    <section className="md:pt-20 pt-16 gradient-background">
       <div className="flex md:mb-2 md:pt-2 items-center justify-center">
         <p className="md:text-3xl text-xl text-white font-bold">{t('welcome')}</p>
       </div>
@@ -18,9 +17,9 @@ const HomeSection = () => {
           {t('description')}
         </p>
       </div>
-      <div className="flex justify-center">
+      {/* <div className="flex justify-center">
         <Image src={welcomeImage} alt={t('welcomeAlt')} className='curved-bottom full-width'/>
-      </div>
+      </div> */}
     </section>
   );
 };

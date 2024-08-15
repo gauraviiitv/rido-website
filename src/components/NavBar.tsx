@@ -5,11 +5,11 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { UserIcon, Bars3Icon } from '@heroicons/react/24/solid';
 import { useTranslations } from 'next-intl';
-import { setCookie } from 'cookies-next'; // Use the cookies-next library or similar
+import { setCookie } from 'cookies-next';
 import { CognitoUser, CognitoUserSession } from 'amazon-cognito-identity-js';
 import { userPool } from '../cognito';
-import logo from '../assets/logo.png'; // Adjust the path based on your project structure
-import indFlag from '../assets/in.png'; // Example path to flag images
+import logo from '../assets/logo.png';
+import indFlag from '../assets/in.png';
 
 // Define a custom type for image imports
 type FlagImage = {
@@ -23,8 +23,9 @@ const Navbar: React.FC = () => {
   const router = useRouter();
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
   const [isMenuDropdownOpen, setIsMenuDropdownOpen] = useState(false);
+  const [isAccountDropdownOpen, setIsAccountDropdownOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState<{ code: string, name: string, flag?: FlagImage }>({
-    code: 'IN', // Set default locale to Hindi
+    code: 'IN',
     name: 'हिंदी',
     flag: indFlag
   });
@@ -56,42 +57,46 @@ const Navbar: React.FC = () => {
             setUserName(nameAttr?.Value || 'User');
           });
         } else {
-          setUserName(null); // Clear userName if session is not valid
+          setUserName(null);
         }
       });
     } else {
-      setUserName(null); // Clear userName if no current user
+      setUserName(null);
     }
   }, []);
 
   const handleClick = () => {
-    router.push('/'); // Navigate to home
+    router.push('/');
   };
 
   const toggleLanguageDropdown = () => {
     setIsLanguageDropdownOpen(!isLanguageDropdownOpen);
-    setIsMenuDropdownOpen(false); // Close the menu dropdown when opening language dropdown
+    setIsMenuDropdownOpen(false);
+    setIsAccountDropdownOpen(false);
   };
 
   const toggleMenuDropdown = () => {
     setIsMenuDropdownOpen(!isMenuDropdownOpen);
-    setIsLanguageDropdownOpen(false); // Close the language dropdown when opening menu dropdown
+    setIsLanguageDropdownOpen(false);
+    setIsAccountDropdownOpen(false);
+  };
+
+  const toggleAccountDropdown = () => {
+    setIsAccountDropdownOpen(!isAccountDropdownOpen);
+    setIsLanguageDropdownOpen(false);
+    setIsMenuDropdownOpen(false);
   };
 
   const handleLanguageChange = (language: { code: string, name: string, flag?: FlagImage }) => {
     setSelectedLanguage(language);
-    setIsLanguageDropdownOpen(false); // Close the dropdown after selection
-
-    // Set a cookie for the selected language
+    setIsLanguageDropdownOpen(false);
     setCookie('locale', language.code);
-
-    // Optionally refresh the page
-    router.refresh(); // Reloads the current page, useful for dynamic content updates
+    router.refresh();
   };
 
   const handleNavigation = (path: string) => {
-    router.push(path); // Navigate to the selected path
-    setIsMenuDropdownOpen(false); // Close the dropdown after navigation
+    router.push(path);
+    setIsMenuDropdownOpen(false);
   };
 
   const handleLogout = () => {
@@ -99,7 +104,7 @@ const Navbar: React.FC = () => {
     if (currentUser) {
       currentUser.signOut();
       setUserName(null);
-      router.refresh(); // Redirect to login page after logout
+      router.refresh();
     }
   };
 
@@ -107,18 +112,18 @@ const Navbar: React.FC = () => {
     <nav className="fixed w-full gradient-container p-2 flex justify-between items-center z-50">
       <div className="flex items-center space-x-4">
         <button onClick={handleClick} className="focus:outline-none">
-          <Image src={logo} alt={t('logo')} width={100} height={100} /> {/* Logo Image */}
+          <Image src={logo} alt={t('logo')} width={100} height={100} />
         </button>
       </div>
       <div className="flex items-center space-x-4">
         <div className="relative">
           <button onClick={toggleLanguageDropdown} className="flex items-center space-x-2 px-2 bg-white text-black rounded-full">
             {selectedLanguage.flag && (
-              <Image src={selectedLanguage.flag.src} alt={selectedLanguage.name} width={20} height={20} /> // Language Flag Image
+              <Image src={selectedLanguage.flag.src} alt={selectedLanguage.name} width={20} height={20} />
             )}
             <span>{selectedLanguage.name}</span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 ml-1">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /> {/* Dropdown Arrow */}
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
             </svg>
           </button>
           {isLanguageDropdownOpen && (
@@ -130,44 +135,54 @@ const Navbar: React.FC = () => {
                   className="flex items-center px-2 text-black hover:bg-gray-100 rounded-lg w-full text-left"
                 >
                   {language.flag && (
-                    <Image src={language.flag.src} alt={language.name} width={20} height={20} className="mr-2" /> 
+                    <Image src={language.flag.src} alt={language.name} width={20} height={20} className="mr-2" />
                   )}
-                  {language.name} {/* Language Name */}
+                  {language.name}
                 </button>
               ))}
             </div>
           )}
         </div>
         {userName ? (
-          <div className="flex items-center">
-            <button className="bg-white text-black flex items-center px-2 rounded-full">
+          <div className="relative">
+            <button onClick={toggleAccountDropdown} className="bg-white text-black flex items-center px-2 rounded-full">
               <UserIcon className="h-4 w-4 text-black" />
-              <span className="ml-2">{userName}</span>
+              <span className="ml-2">Account</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 ml-1">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              </svg>
             </button>
-            <button 
-              onClick={handleLogout} 
-              className="bg-white text-black flex items-center px-2 rounded-full ml-4"
-            >
-              Log Out
-            </button>
+            {isAccountDropdownOpen && (
+              <div className="absolute right-0 mt-2 w-28 bg-white border border-gray-200 rounded-lg shadow-lg">
+                <button 
+                  className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg"
+                >
+                  {userName} {/* Display the username here */}
+                </button>
+                <button 
+                  onClick={handleLogout}
+                  className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg"
+                >
+                  Log Out
+                </button>
+              </div>
+            )}
           </div>
         ) : (
           <button 
-            onClick={() => router.push('/auth/login')} // Navigate to login page
+            onClick={() => router.push('/auth/login')}
             className="bg-white text-black flex items-center px-2 rounded-full"
           >
             <UserIcon className="h-4 w-4 text-black" />
             <span className="ml-2">Log In</span>
           </button>
         )}
-
         <div className="relative">
           <button onClick={toggleMenuDropdown} className="focus:outline-none">
-            <Bars3Icon className=" mt-2 h-8 w-8 text-black" /> {/* Menu Icon */}
+            <Bars3Icon className="mt-2 h-8 w-8 text-black" />
           </button>
           {isMenuDropdownOpen && (
             <div className="absolute right-0 mt-2 w-36 bg-white border border-gray-200 rounded-lg shadow-lg">
-              <button onClick={() => handleNavigation('/booking/book')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">{t('bookWithUs')}</button>
               <button onClick={() => handleNavigation('/pages/driver')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">{t('driveWithUs')}</button>
               <button onClick={() => handleNavigation('/pages/rental')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">{t('ridoRental')}</button>
               <button onClick={() => handleNavigation('/pages/ridomoney')} className="block py-2 px-4 text-black hover:bg-gray-100 w-full text-left rounded-lg">{t('ridoMoney')}</button>
