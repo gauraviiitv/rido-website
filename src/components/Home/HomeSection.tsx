@@ -17,9 +17,6 @@ const HomeSection = () => {
           {t('description')}
         </p>
       </div>
-      {/* <div className="flex justify-center">
-        <Image src={welcomeImage} alt={t('welcomeAlt')} className='curved-bottom full-width'/>
-      </div> */}
     </section>
   );
 };

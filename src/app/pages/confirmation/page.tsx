@@ -10,7 +10,7 @@ import Navbar from '@/components/NavBar';
 import CloseButton from '@/components/CloseButton';
 import Footer from '@/components/Footer';
 import logo1 from '@/assets/logo1.png';
-import { LoadScript, Autocomplete } from '@react-google-maps/api';
+import { LoadScriptNext, Autocomplete } from '@react-google-maps/api';
 
 export default function Booking() {
   const router = useRouter();
@@ -80,7 +80,7 @@ export default function Booking() {
         <div className="relative z-10 w-full max-w-3xl p-8 bg-white rounded-lg shadow-lg">
           {/* Source and Destination */}
           <div className="flex flex-col space-y-4 mb-4">
-            <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? ''} libraries={['places']} id="script-loader">
+            <LoadScriptNext googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? ''} libraries={['places']}>
               <div className="flex flex-col space-y-4">
                 <Autocomplete
                   onLoad={(autocomplete) => (sourceRef.current = autocomplete)}
@@ -108,7 +108,7 @@ export default function Booking() {
                   />
                 </Autocomplete>
               </div>
-            </LoadScript>
+            </LoadScriptNext>
           </div>
 
           {/* When dropdown */}

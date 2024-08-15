@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import driver from '@/assets/driver.png';
 import booking from '@/assets/booking.png';
-import { LoadScript, Autocomplete } from '@react-google-maps/api';
+import { LoadScriptNext, Autocomplete } from '@react-google-maps/api';
 
 export default function BookingSection() {
   const [currentLocation, setCurrentLocation] = useState<string | null>(null);
@@ -55,35 +55,39 @@ export default function BookingSection() {
           </h1>
 
           {/* Input fields with Google Maps Autocomplete */}
-          <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? ''} libraries={['places']} id="script-loader">
-            <div className="flex flex-col md:flex-row justify-center bg-navy space-y-4 md:space-y-0 md:space-x-4 py-3 my-3 md:margin-100">
-              <Autocomplete
-                onLoad={(autocomplete) => (currentLocationRef.current = autocomplete)}
-                onPlaceChanged={() => handlePlaceChanged(currentLocationRef, setCurrentLocation)}
-              >
-                <input
-                  type="text"
-                  placeholder="Enter Current location"
-                  className="border px-4 py-2 focus:outline-none"
-                />
-              </Autocomplete>
+          <LoadScriptNext googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? ''} libraries={['places']}>
+  <div className="flex flex-col md:flex-row justify-center bg-navy space-y-4 md:space-y-0 md:space-x-4 py-3 my-3 md:margin-100">
+    <Autocomplete
+      onLoad={(autocomplete) => (currentLocationRef.current = autocomplete)}
+      onPlaceChanged={() => handlePlaceChanged(currentLocationRef, setCurrentLocation)}
+    >
+      <input
+        type="text"
+        placeholder="Enter Current location"
+        className="border px-4 py-2 focus:outline-none"
+      />
+    </Autocomplete>
 
-              <Autocomplete
-                onLoad={(autocomplete) => (destinationRef.current = autocomplete)}
-                onPlaceChanged={() => handlePlaceChanged(destinationRef, setDestination)}
-              >
-                <input
-                  type="text"
-                  placeholder="Enter Destination"
-                  className="border px-4 py-2 focus:outline-none"
-                />
-              </Autocomplete>
+    <Autocomplete
+      onLoad={(autocomplete) => (destinationRef.current = autocomplete)}
+      onPlaceChanged={() => handlePlaceChanged(destinationRef, setDestination)}
+    >
+      <input
+        type="text"
+        placeholder="Enter Destination"
+        className="border px-4 py-2 focus:outline-none"
+      />
+    </Autocomplete>
 
-              <button className="bg-yellow-500 text-black font-bold py-2 px-6 w-full md:w-auto" onClick={handleSearch}>
-                Search Rido Vehicle
-              </button>
-            </div>
-          </LoadScript>
+    <button 
+      className="bg-yellow-500 text-black font-bold py-2 px-6 w-full md:w-auto"
+      onClick={handleSearch}
+    >
+      Search Rido Vehicle
+    </button>
+  </div>
+</LoadScriptNext>
+
         </div>
       </div>
 
