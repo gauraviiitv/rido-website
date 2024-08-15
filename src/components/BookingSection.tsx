@@ -10,7 +10,7 @@ import { LoadScript, Autocomplete } from '@react-google-maps/api';
 export default function BookingSection() {
   const [currentLocation, setCurrentLocation] = useState<string | null>(null);
   const [destination, setDestination] = useState<string | null>(null);
-  
+
   const router = useRouter();
 
   // Use refs to store the autocomplete instances
@@ -55,7 +55,7 @@ export default function BookingSection() {
           </h1>
 
           {/* Input fields with Google Maps Autocomplete */}
-          <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? ''} libraries={['places']}>
+          <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? ''} libraries={['places']} id="script-loader">
             <div className="flex justify-center bg-navy space-x-4 py-3 my-3 margin-100">
               <Autocomplete
                 onLoad={(autocomplete) => (currentLocationRef.current = autocomplete)}

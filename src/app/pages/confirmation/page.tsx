@@ -80,7 +80,7 @@ export default function Booking() {
         <div className="relative z-10 w-full max-w-3xl p-8 bg-white rounded-lg shadow-lg">
           {/* Source and Destination */}
           <div className="flex flex-col space-y-4 mb-4">
-            <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? ''} libraries={['places']}>
+            <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? ''} libraries={['places']} id="script-loader">
               <div className="flex flex-col space-y-4">
                 <Autocomplete
                   onLoad={(autocomplete) => (sourceRef.current = autocomplete)}
