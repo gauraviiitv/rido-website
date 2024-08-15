@@ -4,7 +4,7 @@ import { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import driver from '@/assets/driver.png';
-import booking from '@/assets/booking.png';
+import booking from '@/assets/booking.jpg';
 import { LoadScript, Autocomplete } from '@react-google-maps/api';
 
 export default function BookingSection() {
