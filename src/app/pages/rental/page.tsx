@@ -2,6 +2,7 @@ import React from 'react';
 import CloseButton from '@/components/CloseButton';
 import { useTranslations } from 'next-intl';
 import Navbar from '@/components/NavBar';
+import Footer from '@/components/Footer';
 
 const RidoRentalPage: React.FC = () => {
   const t = useTranslations('ridoRental');
@@ -47,6 +48,7 @@ const RidoRentalPage: React.FC = () => {
         <strong>{t('suvTitle')}:</strong> {t('suvDesc')}<br />
         <strong>{t('vansTitle')}:</strong> {t('vansDesc')}
       </p>
+      <Footer />
     </section>
     </div>
   );

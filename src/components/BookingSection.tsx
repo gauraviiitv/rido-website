@@ -7,6 +7,9 @@ import driver from '@/assets/driver.png';
 import booking from '@/assets/booking.png';
 import { LoadScriptNext, Autocomplete } from '@react-google-maps/api';
 
+// Declare the libraries array outside the component
+const libraries: Library[] = ['places'];
+
 export default function BookingSection() {
   const [currentLocation, setCurrentLocation] = useState<string | null>(null);
   const [destination, setDestination] = useState<string | null>(null);
@@ -55,7 +58,7 @@ export default function BookingSection() {
           </h1>
 
           {/* Input fields with Google Maps Autocomplete */}
-          <LoadScriptNext googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? ''} libraries={['places']}>
+          <LoadScriptNext googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? ''} libraries={libraries}>
           <div className="flex flex-col md:flex-row justify-center items-center w-full bg-navy space-y-4 md:space-y-0 md:space-x-4 py-3 my-3">
             <Autocomplete
               onLoad={(autocomplete) => (currentLocationRef.current = autocomplete)}
@@ -63,7 +66,7 @@ export default function BookingSection() {
             >
               <input
                 type="text"
-                placeholder="Enter Current location"
+                placeholder="Enter Source"
                 className="border md:w-auto px-4 py-2 focus:outline-none"
               />
             </Autocomplete>
